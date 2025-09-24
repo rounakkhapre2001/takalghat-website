@@ -19,14 +19,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* ✅ Force favicon (tab icon) */}
+        <link rel="icon" href="/icon.png" type="image/png" />
+      </head>
       <body className={inter.className}>
-        {/* ✅ Wrap the whole app with LanguageProvider */}
         <LanguageProvider>
           <Header />
-          <main className="relative">
-            {children}
-          </main>
-         <Footer />
+          <main className="relative">{children}</main>
+          <Footer />
         </LanguageProvider>
       </body>
     </html>

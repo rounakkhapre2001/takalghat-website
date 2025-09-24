@@ -60,13 +60,13 @@ export default function Header() {
           <ul className="flex items-center">
             <li ref={dropdownRef} className="relative">
               <button
-                className="text-gray-800 hover:text-green-700 transition-colors duration-300 font-semibold cursor-pointer flex items-center text-xl px-5 py-3"
+                className="text-gray-800 hover:text-green-700 transition-colors duration-300 font-semibold cursor-pointer flex items-center text-lg md:text-base px-4 py-2"
                 onClick={toggleDropdown}
                 onMouseEnter={handleMouseEnter}
               >
                 {t.allPages}
                 <svg
-                  className="w-6 h-6 ml-2"
+                  className="w-5 h-5 ml-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -82,26 +82,26 @@ export default function Header() {
 
               {isDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 mt-7 bg-white rounded-lg shadow-xl py-4 px-4 w-[40rem] z-40"
+                  className="absolute top-full left-0 mt-7 bg-white rounded-lg shadow-xl py-4 px-4 w-[36rem] z-40"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
                   <div className="flex">
                     <div className="w-1/2 p-2 max-width: 65%;">
                       <Image
-                        src="/img9.png"
+                        src="/img90.png"
                         alt="Dropdown image"
-                        width={200}
-                        height={200}
+                        width={180}
+                        height={180}
                         className="rounded-lg object-cover"
                       />
                     </div>
-                    <div className="w-1/2 p-4 grid grid-cols-2 gap-y-2 gap-x-4">
+                    <div className="w-1/2 p-4 grid grid-cols-2 gap-y-2 gap-x-3">
                       {navLinks.map(link => (
                         <Link
                           key={link.href}
                           href={link.href}
-                          className="block text-gray-700 hover:text-green-700 font-semibold text-lg"
+                          className="block text-gray-700 hover:text-green-700 font-medium text-base"
                           onClick={handleLinkClick}
                         >
                           {link.label}
@@ -118,15 +118,15 @@ export default function Header() {
         {/* Center Logo (Desktop) */}
         <div className="flex-1 text-center hidden md:block">
           <Link href="/">
-            <div className="flex items-center justify-center space-x-3">
+            <div className="flex items-center justify-center space-x-2">
               <Image
                 src="/logo.png"
                 alt="Logo"
-                width={80}
-                height={80}
+                width={70}
+                height={70}
                 className="object-contain"
               />
-              <span className="text-3xl font-bold text-green-800 text-center whitespace-nowrap">
+              <span className="text-xl md:text-xl font-bold text-green-800 text-center whitespace-nowrap">
                 {t.logo}
               </span>
             </div>
@@ -137,7 +137,7 @@ export default function Header() {
         <div className="flex items-center justify-end w-1/3 hidden md:flex space-x-3">
           <button
             onClick={toggleLanguage}
-            className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium shadow-md"
+            className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium shadow-md text-base"
           >
             {t.marathiBtn}
           </button>

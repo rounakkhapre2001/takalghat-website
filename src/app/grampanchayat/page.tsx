@@ -155,9 +155,8 @@ const electedMembers = [
     photo: "/user-profile-icon.jpg",
     description:
       "As Panchayat Adhikari of Gram Panchayat Takalghat, [Officer Name] provides administrative guidance, ensures proper execution of government policies, supervises Gram Panchayat functions, and supports the Sarpanch, Upa-Sarpanch, and Members in delivering effective governance and development to the village.",
-  },
+  },
 ];
-
 
 const staff = [
   {
@@ -181,23 +180,23 @@ const staff = [
 export default function TeamPage() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-orange-200 via-white to-green-200">
-      {/* 🔹 Hero Section (About Page style) */}
+      {/* 🔹 Hero Section */}
       <section className="relative w-full h-[800px]">
         <Image
-          src="/img3.jpg" // apni background image ka path
+          src="/img3.jpg"
           alt="Our Team"
           fill
           priority
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold">OUR TEAM</h1>
+          <h1 className="text-3xl md:text-4xl font-bold">OUR TEAM</h1>
         </div>
       </section>
 
       {/* 🔹 Members Section */}
       <section className="max-w-5xl mx-auto px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight border-l-8 border-orange-500 pl-4 py-2 bg-gradient-to-r from-orange-50 via-white to-white shadow-sm mb-12 text-orange-600">
+        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight border-l-8 border-orange-500 pl-4 py-2 bg-gradient-to-r from-orange-50 via-white to-white shadow-sm mb-12 text-orange-600">
           Elected Members
         </h2>
 
@@ -213,28 +212,28 @@ export default function TeamPage() {
               alt={person.name}
               width={224}
               height={224}
-              className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-xl border-4 border-[#f7931e] shadow-md"
+              className="w-44 h-44 md:w-48 md:h-48 object-cover rounded-xl border-4 border-[#f7931e] shadow-md"
             />
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold text-[#057c26] mb-1">
+              <h3 className="text-xl font-bold text-[#057c26] mb-1">
                 {person.name}
               </h3>
-              <div className="text-[#f7931e] font-semibold mb-2">
+              <div className="text-[#f7931e] font-semibold mb-2 text-sm">
                 {person.designation}
               </div>
-              <span className="inline-block bg-[#ffe100] text-[#232323] text-sm font-semibold px-6 py-2 rounded-full mb-3">
+              <span className="inline-block bg-[#ffe100] text-[#232323] text-xs font-semibold px-4 py-1 rounded-full mb-3">
                 {person.term}
               </span>
-              <p className="text-[#363636]">{person.description}</p>
+              <p className="text-[#363636] text-sm">{person.description}</p>
             </div>
           </div>
         ))}
 
         {/* 🔹 Administrative Staff Section */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-green-700 tracking-tight border-l-8 border-green-400 pl-4 py-2 bg-gradient-to-r from-green-50 via-white to-white shadow-sm mb-6">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-green-700 tracking-tight border-l-8 border-green-400 pl-4 py-2 bg-gradient-to-r from-green-50 via-white to-white shadow-sm mb-6">
           Administrative Staff
         </h2>
-        <p className="mb-8 text-[#4a4a4a]">
+        <p className="mb-8 text-[#4a4a4a] text-sm md:text-base">
           A section dedicated to the key officials. Include the name, photo, and
           role of the Gram Sevak (Village Development Officer) and any other
           important staff like the computer operator or clerk.
@@ -251,23 +250,23 @@ export default function TeamPage() {
               alt={person.name}
               width={208}
               height={208}
-              className="w-44 h-44 md:w-52 md:h-52 object-cover rounded-xl border-4 border-[#ffe100] shadow-md"
+              className="w-40 h-40 md:w-44 md:h-44 object-cover rounded-xl border-4 border-[#ffe100] shadow-md"
             />
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-xl font-bold text-[#f7931e] mb-1">
+              <h3 className="text-lg font-bold text-[#f7931e] mb-1">
                 {person.name}
               </h3>
-              <div className="text-[#057c26] font-semibold mb-2">
+              <div className="text-[#057c26] font-semibold mb-2 text-sm">
                 {person.designation}
               </div>
-              <span className="inline-block bg-[#ffe100] text-[#232323] text-sm font-semibold px-5 py-2 rounded-full mb-2">
+              <span className="inline-block bg-[#ffe100] text-[#232323] text-xs font-semibold px-3 py-1 rounded-full mb-2">
                 {person.term}
               </span>
-              <p className="text-[#363636]">{person.description}</p>
+              <p className="text-[#363636] text-sm">{person.description}</p>
             </div>
           </div>
         ))}
       </section>
-    </div>
-  );
+    </div>
+  );
 }

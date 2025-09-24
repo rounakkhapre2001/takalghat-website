@@ -77,6 +77,10 @@ export const translations = {
           name: "Marriage Certificate",
           docs: ["Aadhaar Card Xerox", "Parent Aadhaar Xerox"],
         },
+        {
+          name: "Marriage Certificate",
+          docs: ["Aadhaar Card Xerox", "Parent Aadhaar Xerox"],
+        },
       ],
     },
 
@@ -221,6 +225,14 @@ export const translations = {
         {
           name: "मृत्यू दाखला",
           docs: ["मृत व्यक्तीचे आधार कार्ड झेरॉक्स", "वारसाचे आधार कार्ड झेरॉक्स"],
+        },
+        {
+          name: "निवास दाखला",
+          docs: ["आधार कार्ड झेरॉक्स", "रेशन कार्ड झेरॉक्स"],
+        },
+        {
+          name: "निवास दाखला",
+          docs: ["आधार कार्ड झेरॉक्स", "रेशन कार्ड झेरॉक्स"],
         },
         {
           name: "निवास दाखला",

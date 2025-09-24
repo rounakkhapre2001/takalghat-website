@@ -26,25 +26,25 @@ export default function LeadersSection() {
   return (
     <>
       {/* About & Heading Section */}
-      <section className="w-full py-16 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
-            <div>
-              <p className="text-sm uppercase tracking-widest text-gray-600 mb-2">
-                {t.leaders1.about}
-              </p>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-green-800 leading-snug mb-6">
-                {t.leaders1.title}
-              </h2>
-            </div>
-            <div>
-              <p className="text-xl font-bold text-green-700 leading-relaxed">
-                {t.leaders1.description}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+<section className="w-full py-12 px-6 bg-white">
+  <div className="max-w-5xl mx-auto">
+    <div className="grid md:grid-cols-2 gap-8 items-center mb-10">
+      <div>
+        <p className="text-sm uppercase tracking-widest text-gray-600 mb-2">
+          {t.leaders1.about}
+        </p>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 leading-snug mb-6">
+          {t.leaders1.title}
+        </h2>
+      </div>
+      <div>
+        <p className="text-lg font-bold text-green-700 leading-relaxed">
+          {t.leaders1.description}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Leaders Slider */}
       <section className="w-full bg-gradient-to-b from-orange-300 via-white to-green-200 py-10">

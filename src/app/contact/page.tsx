@@ -23,8 +23,8 @@ const ContactPage = () => {
         
         {/* Left Side: Contact Form */}
         <div className="w-full md:w-1/2 bg-[#11312f] rounded-xl shadow-2xl p-8 space-y-6">
-          <h2 className="text-4xl font-bold mb-2">Let’s Connect with us!</h2>
-          <p className="text-gray-300">
+          <h2 className="text-3xl font-bold mb-2">Let’s Connect with us!</h2>
+          <p className="text-gray-300 text-sm md:text-base">
             We believe in collaboration and value your input throughout the
             design process. We encourage clients to actively participate in
             discussions, share their ideas, preferences, and feedback.
@@ -32,65 +32,65 @@ const ContactPage = () => {
 
           <form className="space-y-4">
             <div>
-              <label htmlFor="fullName" className="block text-lg font-medium">
+              <label htmlFor="fullName" className="block text-base font-medium">
                 Full Name
               </label>
               <input
                 type="text"
                 id="fullName"
-                className="mt-1 block w-full bg-[#0a1e1d] border border-[#1d4f4e] rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full bg-[#0a1e1d] border border-[#1d4f4e] rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-sm"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-lg font-medium">
+              <label htmlFor="email" className="block text-base font-medium">
                 Email Address*
               </label>
               <input
                 type="email"
                 id="email"
-                className="mt-1 block w-full bg-[#0a1e1d] border border-[#1d4f4e] rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full bg-[#0a1e1d] border border-[#1d4f4e] rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-sm"
               />
             </div>
             <div>
-              <label htmlFor="subject" className="block text-lg font-medium">
+              <label htmlFor="subject" className="block text-base font-medium">
                 Inquire Subject*
               </label>
               <input
                 type="text"
                 id="subject"
-                className="mt-1 block w-full bg-[#0a1e1d] border border-[#1d4f4e] rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full bg-[#0a1e1d] border border-[#1d4f4e] rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-sm"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-lg font-medium">
+              <label htmlFor="message" className="block text-base font-medium">
                 Message*
               </label>
               <textarea
                 id="message"
                 rows={4}
-                className="mt-1 block w-full bg-[#0a1e1d] border border-[#1d4f4e] rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full bg-[#0a1e1d] border border-[#1d4f4e] rounded-md py-2 px-3 text-white placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-sm"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="mt-4 px-6 py-3 bg-[#11312f] text-white text-xl font-bold rounded-full shadow-md hover:bg-[#1d4f4e] transition flex items-center justify-center space-x-2 w-full"
+              className="mt-4 px-6 py-3 bg-[#11312f] text-white text-lg font-bold rounded-full shadow-md hover:bg-[#1d4f4e] transition flex items-center justify-center space-x-2 w-full"
             >
               <span>Send a Message</span>
-              <span className="text-2xl">→</span>
+              <span className="text-xl">→</span>
             </button>
           </form>
         </div>
 
         {/* Right Side: Contact Information */}
         <div className="w-full md:w-1/2 md:p-12 mt-12 md:mt-0">
-          <h3 className="text-4xl font-bold mb-2 text-[#11312f]">
+          <h3 className="text-3xl font-bold mb-2 text-[#11312f]">
             Interested in working with us!
           </h3>
-          <p className="text-black">
+          <p className="text-black text-sm md:text-base">
             We encourage our team to fearlessly challenge conventions and pioneer new paths.
           </p>
 
-          <div className="mt-8 space-y-6 text-lg">
+          <div className="mt-8 space-y-6 text-sm md:text-base">
             <div>
               <p className="font-bold text-black">Working Mail</p>
               <p className="text-black">info@novitaspace.com</p>
@@ -112,4 +112,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default ContactPage;

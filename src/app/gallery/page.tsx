@@ -84,7 +84,7 @@ export default function ProGallery() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-5xl font-bold">OUR GALLERY</h1>
+          <h1 className="text-5xl md:text-4xl font-bold">OUR GALLERY</h1>
         </div>
       </section>
 

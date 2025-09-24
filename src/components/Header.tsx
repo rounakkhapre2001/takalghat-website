@@ -126,7 +126,7 @@ export default function Header() {
                 height={80}
                 className="object-contain"
               />
-              <span className="text-xl font-bold text-green-800 text-center whitespace-nowrap">
+              <span className="text-3xl font-bold text-green-800 text-center whitespace-nowrap">
                 {t.logo}
               </span>
             </div>

@@ -26,7 +26,7 @@ const Footer = () => {
   const { t } = useContext(LanguageContext); // ✅ context se text
 
   return (
-    <footer className="bg-[#151B40] text-white font-poppins py-10 px-3">
+    <footer className="bg-green-900 text-white font-poppins py-10 px-3">
       {/* Responsive Columns */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-y-8 md:gap-x-12">
         {/* LEFT */}

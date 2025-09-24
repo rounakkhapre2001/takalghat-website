@@ -46,7 +46,7 @@ const HeroSection = () => {
             <circle cx="100" cy="100" r="100" stroke="white" strokeWidth="1" fill="none" />
             <circle cx="100" cy="100" r="60" stroke="white" strokeWidth="1" fill="none" />
             <text fill="white" fontSize="20" letterSpacing="3">
-              <textPath href="#circlePath">{t.logo} • {t.logo} •</textPath>
+              <textPath href="#circlePath">{t.hero.logo} • {t.hero.logo} •</textPath>
             </text>
           </svg>
         </motion.div>
@@ -73,7 +73,7 @@ const HeroSection = () => {
       {/* ----------------- Mobile View ----------------- */}
       <div className="block md:hidden w-full h-full flex flex-col items-center justify-start pt-16">
         <motion.div
-          className="relative top-24 left-6 w-28 h-28 mx-auto"
+          className="relative top-26 left-32 w-28 h-28 mx-auto"
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         >
@@ -91,7 +91,7 @@ const HeroSection = () => {
             <circle cx="100" cy="100" r="100" stroke="white" strokeWidth="1" fill="none" />
             <circle cx="100" cy="100" r="60" stroke="white" strokeWidth="1" fill="none" />
             <text fill="white" fontSize="16" letterSpacing="2">
-              <textPath href="#circlePathMobile">{t.logo} • {t.logo} •</textPath>
+              <textPath href="#circlePathMobile">{t.hero.logo} • {t.hero.logo} •</textPath>
             </text>
           </svg>
         </motion.div>

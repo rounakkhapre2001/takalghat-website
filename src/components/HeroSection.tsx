@@ -46,7 +46,7 @@ const HeroSection = () => {
             <circle cx="100" cy="100" r="100" stroke="white" strokeWidth="1" fill="none" />
             <circle cx="100" cy="100" r="60" stroke="white" strokeWidth="1" fill="none" />
             <text fill="white" fontSize="20" letterSpacing="3">
-              <textPath href="#circlePath">{t.hero.logo} • {t.hero.logo} •</textPath>
+              <textPath href="#circlePath">{t.hero.logo} •</textPath>
             </text>
           </svg>
         </motion.div>
@@ -91,7 +91,7 @@ const HeroSection = () => {
             <circle cx="100" cy="100" r="100" stroke="white" strokeWidth="1" fill="none" />
             <circle cx="100" cy="100" r="60" stroke="white" strokeWidth="1" fill="none" />
             <text fill="white" fontSize="16" letterSpacing="2">
-              <textPath href="#circlePathMobile">{t.hero.logo} • {t.hero.logo} •</textPath>
+              <textPath href="#circlePathMobile">{t.hero.logo} •</textPath>
             </text>
           </svg>
         </motion.div>

@@ -172,7 +172,7 @@ export const translations = {
 
     // HomePage / Hero Section
     hero: {
-      logo: "ग्रामपंचायत टाकळघाट • गाव •",
+      logo: "ग्रामपंचायत टाकळघाट • गाव • टाकळघाट • गाव •",
     },
     heroTitle1: "माझे गाव, माझा अभिमान ",
     heroTitle2: "टाकसमाज बांधणी घडवूयाळघाट",

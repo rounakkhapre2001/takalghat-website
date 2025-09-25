@@ -75,7 +75,7 @@ export default function ProGallery() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative w-full h-[800px]">
+      <section className="relative w-full h-[500px] md:h-[800px]">
         <Image
           src="/img3.jpg"
           alt="Gallery Banner"
@@ -84,37 +84,37 @@ export default function ProGallery() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-5xl md:text-4xl font-bold">OUR GALLERY</h1>
+          <h1 className="text-3xl md:text-4xl font-bold">OUR GALLERY</h1>
         </div>
       </section>
 
       {/* Gallery Section */}
-<section className="py-16 bg-gradient-to-br from-orange-300 via-white to-green-300">
-  <div className="text-center mb-12"></div>
+      <section className="py-16 bg-gradient-to-br from-orange-300 via-white to-green-300">
+        <div className="text-center mb-12"></div>
 
-  {/* Gallery Grid */}
-  <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 px-6 md:px-12 auto-rows-[220px]">
-    {images.map((img, idx) => (
-      <motion.div
-        key={idx}
-        className={`relative rounded-3xl overflow-hidden shadow-lg cursor-pointer group ${spanClasses[idx]}`}
-        whileHover={{ scale: 1.04 }}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: idx * 0.08 }}
-        onClick={() => openLightbox(img, idx)}
-      >
-        <img
-          src={img}
-          alt={`gallery-${idx}`}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        <div className="absolute inset-0 border-2 border-transparent group-hover:border-indigo-500 rounded-3xl transition"></div>
-      </motion.div>
-    ))}
-  </div>
+        {/* Gallery Grid */}
+        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 px-4 md:px-12 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[220px]">
+          {images.map((img, idx) => (
+            <motion.div
+              key={idx}
+              className={`relative rounded-2xl overflow-hidden shadow-lg cursor-pointer group 
+                ${idx < spanClasses.length ? `md:${spanClasses[idx]}` : ""}`}
+              whileHover={{ scale: 1.04 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.05 }}
+              onClick={() => openLightbox(img, idx)}
+            >
+              <img
+                src={img}
+                alt={`gallery-${idx}`}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Lightbox */}
         <AnimatePresence>
@@ -130,20 +130,20 @@ export default function ProGallery() {
                   className="absolute top-4 right-4 text-white hover:text-red-400 transition z-50"
                   onClick={() => setSelectedImage(null)}
                 >
-                  <X size={36} />
+                  <X size={32} />
                 </button>
 
                 <button
                   className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-indigo-400 z-50"
                   onClick={prevImage}
                 >
-                  <ChevronLeft size={44} />
+                  <ChevronLeft size={40} />
                 </button>
                 <button
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-indigo-400 z-50"
                   onClick={nextImage}
                 >
-                  <ChevronRight size={44} />
+                  <ChevronRight size={40} />
                 </button>
 
                 <motion.img

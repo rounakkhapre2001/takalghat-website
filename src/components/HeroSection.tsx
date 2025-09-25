@@ -8,9 +8,9 @@ const HeroSection = () => {
   const { t } = useContext(LanguageContext);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full overflow-hidden">
       {/* Background video */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 -z-10">
         <video
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
@@ -25,7 +25,7 @@ const HeroSection = () => {
       </div>
 
       {/* ----------------- Desktop View ----------------- */}
-      <div className="hidden md:flex md:flex-col md:items-center md:justify-center w-full h-full">
+      <div className="hidden md:flex md:flex-col md:items-center md:justify-center w-full min-h-screen">
         {/* Rotating Circle Logo */}
         <motion.div
           className="absolute top-50 right-80 w-40 h-40"
@@ -71,9 +71,10 @@ const HeroSection = () => {
       </div>
 
       {/* ----------------- Mobile View ----------------- */}
-      <div className="block md:hidden w-full h-full flex flex-col items-center justify-start pt-16">
+      <div className="block md:hidden w-full flex flex-col items-center justify-start pt-12">
+        {/* Rotating Circle Logo */}
         <motion.div
-          className="relative top-26 left-35 w-25 h-28 mx-auto"
+          className="relative top-20 left-38 w-20 h-24 mx-auto"
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         >
@@ -91,29 +92,28 @@ const HeroSection = () => {
             <circle cx="100" cy="100" r="100" stroke="white" strokeWidth="1" fill="none" />
             <circle cx="100" cy="100" r="60" stroke="white" strokeWidth="1" fill="none" />
             <text fill="white" fontSize="16" letterSpacing="2">
-              <textPath href="#circlePathMobile">{t.hero.logo} •</textPath>
+              <textPath href="#circlePathMobile">{t.hero1.logo} •</textPath>
             </text>
           </svg>
         </motion.div>
 
         {/* Content */}
-        {/* Content */}
-<div className="relative text-center px-6 mt-8">
-  <h1 className="text-3xl font-bold text-white leading-tight">
-    {t.heroTitle1}
-    <br />
-    {t.heroTitle2}
-  </h1>
-  <p className="mt-4 text-gray-200 max-w-2xl mx-auto text-sm">
-    {t.heroDesc}
-  </p>
-  <Link
-    href="/contact"
-    className="mt-6 px-6 py-3 bg-green-900 text-white font-bold text-base rounded-full shadow-md hover:bg-green-800 transition block w-fit mx-auto"
-  >
-    {t.bookAppointment} →
-  </Link>
-</div>
+        <div className="relative text-center px-6 mt-6">
+          <h1 className="text-3xl font-bold text-white leading-tight">
+            {t.heroTitle1}
+            <br />
+            {t.heroTitle2}
+          </h1>
+          <p className="mt-3 text-gray-200 max-w-2xl mx-auto text-sm">
+            {t.heroDesc}
+          </p>
+          <Link
+            href="/contact"
+            className="mt-4 mb-50 px-6 py-3 bg-green-900 text-white font-bold text-base rounded-full shadow-md hover:bg-green-800 transition block w-fit mx-auto"
+          >
+            {t.bookAppointment} →
+          </Link>
+        </div>
       </div>
     </section>
   );

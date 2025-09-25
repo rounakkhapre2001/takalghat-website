@@ -34,7 +34,7 @@ export default function ServiceSchemesPage() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <h1 className="text-3xl md:text-4xl font-extrabold text-white text-center drop-shadow-lg">
+          <h1 className="text-3xl md:text-4xl font-bold text-white text-center drop-shadow-lg">
             {t.services.hero}
           </h1>
         </div>
@@ -44,7 +44,7 @@ export default function ServiceSchemesPage() {
       <div className="flex flex-col md:flex-row md:gap-6 gap-4 justify-center my-12 px-4">
         {/* Services */}
         <div className="w-full md:w-2/5 bg-white p-6 rounded-2xl shadow-lg border-2 border-green-500">
-          <h2 className="text-5xl md:text-3xl font-bold mb-4 border-b-2 border-green-600 pb-2">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 border-b-2 border-green-600 pb-2">
             {t.services.title}
           </h2>
           <div className="flex flex-col gap-3">
@@ -52,7 +52,7 @@ export default function ServiceSchemesPage() {
               <div
                 key={index}
                 onClick={() => setOpenModal(item)}
-                className="cursor-pointer border border-green-500 rounded-lg py-3 px-4 text-base font-semibold bg-white hover:bg-green-100 transition"
+                className="cursor-pointer border border-green-500 rounded-lg py-3 px-4 text-base md:text-lg font-semibold bg-white hover:bg-green-100 transition"
               >
                 {item.name}
               </div>
@@ -69,10 +69,12 @@ export default function ServiceSchemesPage() {
             {updates.map((update, i) => (
               <div
                 key={i}
-                className="flex justify-between items-center border border-orange-400 rounded-lg py-3 px-4 bg-white text-base font-semibold"
+                className="flex justify-between items-center border border-orange-400 rounded-lg py-3 px-4 bg-white text-base md:text-lg font-medium"
               >
                 <span>{update}</span>
-                <span className="text-gray-500 text-sm">03/09/2025</span>
+                <span className="text-gray-500 font-bold text-sm md:text-base">
+                  03/09/2025
+                </span>
               </div>
             ))}
           </div>
@@ -121,7 +123,7 @@ export default function ServiceSchemesPage() {
                 <h3 className="text-lg md:text-xl font-bold mb-3">
                   {scheme.title}
                 </h3>
-                <p className="text-sm md:text-base">{scheme.description}</p>
+                <p className="text-base md:text-lg">{scheme.description}</p>
               </div>
             )
           )}
@@ -138,8 +140,10 @@ export default function ServiceSchemesPage() {
             >
               ✖
             </button>
-            <h2 className="text-xl font-bold mb-4">{openModal.name}</h2>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm md:text-base">
+            <h2 className="text-lg md:text-xl font-bold mb-4">
+              {openModal.name}
+            </h2>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 text-base md:text-lg">
               {openModal.docs.map((doc, i) => (
                 <li key={i}>{doc}</li>
               ))}

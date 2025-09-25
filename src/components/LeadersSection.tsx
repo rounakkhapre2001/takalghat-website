@@ -17,7 +17,6 @@ export default function LeadersSection() {
     { name: "Shri. Ajit Pawar", title: "Hon'ble Deputy Chief Minister", img: "/Ajit Pawar.jpg" },
     { name: "Shri. Chandrashekhar Bawankule", title: "President BJP Maharashtra", img: "/Chandrashekhar Bawankule.jpg" },
     { name: "Shri. Sameer Meghe", title: "MLA - Hingna Constituency", img: "/meghe.jpg" },
-    { name: "Shri. Atish Umare", title: "Leader of Opposition Zilla Parishad", img: "/Atish Umare.jpg" },
     { name: "Mrs. Shardatai Gyaneshwarji Bhingaree", title: "Sarpanch GP Takalghat", img: "/roshani.jpg" },
     { name: "Shri. Umeshrav Natthuji Kavale", title: "Deputy Sarpanch", img: "/gawande.jpg" },
     { name: "Smt. Poonam Kalsapre", title: "Secretary GP Takalghat", img: "/kalsapre.jpg" },

@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <div className="w-full bg-gradient-to-br from-orange-200 via-white to-green-200">
       {/* Hero Section */}
-      <section className="relative w-full h-[400px] md:h-[800px]">
+      <section className="relative w-full h-[500px] md:h-[800px]">
         <Image
           src="/img3.jpg"
           alt={t.aboutTitle}
@@ -26,7 +26,7 @@ export default function AboutPage() {
       {/* About Text Section */}
       <section className="py-12 md:py-16 text-center px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
-          <p className="text-base md:text-xl text-green-900 leading-relaxed">
+          <p className="text-base md:text-xl font-bold text-green-900 leading-relaxed">
             {t.aboutText}
           </p>
         </div>

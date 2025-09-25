@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useContext } from "react";
 import { LanguageContext } from "@/context/LanguageContext";
+import Image from "next/image";
 
 type Service = {
   name: string;
@@ -28,17 +29,19 @@ export default function ServiceSchemesPage() {
     <div className="font-sans">
       {/* Hero Section */}
       <section className="relative w-full h-[800px]">
-        <img
-          src="/img3.jpg"
-          alt="Banner"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-white text-center drop-shadow-lg">
-            {t.services.hero}
-          </h1>
-        </div>
-      </section>
+  <Image
+    src="/img3.jpg"
+    alt="Banner"
+    fill
+    className="object-cover"
+    priority
+  />
+  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+    <h1 className="text-3xl md:text-4xl font-bold text-white text-center drop-shadow-lg">
+      {t.services.hero}
+    </h1>
+  </div>
+</section>
 
       {/* Services + Updates */}
       <div className="flex flex-col md:flex-row md:gap-6 gap-4 justify-center my-12 px-4">

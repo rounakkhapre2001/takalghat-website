@@ -38,9 +38,11 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-[270px_1fr] gap-4 items-center">
             {/* First Column */}
             <div className="flex justify-center">
-              <img
+              <Image
                 src="/img8.jpg"
                 alt=""
+                width={270}
+                height={367}
                 className="rounded object-cover w-[200px] h-[270px] md:w-[270px] md:h-[367px]"
               />
             </div>
@@ -49,33 +51,43 @@ export default function AboutPage() {
             <div className="flex flex-col gap-4 md:gap-6">
               {/* Top Row */}
               <div className="flex flex-col sm:flex-row gap-2">
-                <img
+                <Image
                   src="/img4.jpg"
                   alt=""
+                  width={284}
+                  height={254}
                   className="rounded object-cover w-full sm:w-[200px] md:w-[284px] h-[200px] md:h-[254px] sm:mt-8 md:mt-[133px]"
                 />
-                <img
+                <Image
                   src="/img2.jpg"
                   alt=""
+                  width={284}
+                  height={387}
                   className="rounded object-cover w-full sm:w-[200px] md:w-[284px] h-[250px] md:h-[387px]"
                 />
-                <img
+                <Image
                   src="/IMG-20250917-WA0022.jpg"
                   alt=""
+                  width={284}
+                  height={330}
                   className="rounded object-cover w-full sm:w-[200px] md:w-[284px] h-[220px] md:h-[330px] sm:mt-6 md:mt-[59px]"
                 />
               </div>
 
               {/* Bottom Row */}
               <div className="flex flex-col sm:flex-row gap-2">
-                <img
+                <Image
                   src="/IMG-20250917-WA0008.jpg"
                   alt=""
+                  width={438}
+                  height={288}
                   className="rounded object-cover w-full sm:w-[300px] md:w-[438px] h-[200px] md:h-[288px]"
                 />
-                <img
+                <Image
                   src="/IMG-20250917-WA0018.jpg"
                   alt=""
+                  width={290}
+                  height={210}
                   className="rounded object-cover w-full sm:w-[200px] md:w-[290px] h-[160px] md:h-[210px]"
                 />
               </div>
@@ -131,6 +143,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>
+  );
 }

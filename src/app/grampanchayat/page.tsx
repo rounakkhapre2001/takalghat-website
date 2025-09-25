@@ -4,6 +4,15 @@ import React, { useContext } from "react";
 import Image from "next/image";
 import { LanguageContext } from "@/context/LanguageContext";
 
+// ✅ Proper type banaya
+type Person = {
+  name: string;
+  designation: string;
+  photo: string;
+  term: string;
+  description: string;
+};
+
 export default function TeamPage() {
   const { t } = useContext(LanguageContext); // current language
 
@@ -29,7 +38,7 @@ export default function TeamPage() {
           {t.electedMembersTitle}
         </h2>
 
-        {t.electedMembers?.map((person: any, idx: number) => (
+        {t.electedMembers?.map((person: Person, idx: number) => (
           <div
             key={person.name}
             className={`flex flex-col md:flex-row items-center gap-8 mb-14 ${
@@ -63,7 +72,7 @@ export default function TeamPage() {
           {t.staffTitle}
         </h2>
 
-        {t.staff?.map((person: any, idx: number) => (
+        {t.staff?.map((person: Person, idx: number) => (
           <div
             key={person.name}
             className={`flex flex-col md:flex-row items-center gap-8 mb-14 ${

@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useContext } from "react";
-import { LanguageContext } from "../context/LanguageContext"; // ✅ use same context
+import { LanguageContext } from "../context/LanguageContext";
+import Image from "next/image"; // ✅ import Image
 
 // Icons
 const IconFacebook = () => (
@@ -23,11 +24,10 @@ const IconInstagram = () => (
 );
 
 const Footer = () => {
-  const { t } = useContext(LanguageContext); // ✅ context se text
+  const { t } = useContext(LanguageContext);
 
   return (
     <footer className="bg-green-900 text-white font-poppins py-8 px-3">
-      {/* Responsive Columns */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-y-8 md:gap-x-12">
         {/* LEFT */}
         <div className="flex flex-col w-full md:w-1/2 mb-8 md:mb-0">
@@ -36,10 +36,10 @@ const Footer = () => {
             <div className="font-semibold text-base mb-2">{t.footer.subtitle}</div>
           </div>
           <div className="flex gap-6 mt-3 justify-center md:justify-start">
-            <img src="/logo1_footer-removebg.png" alt="Seal" className="h-14 w-auto" />
-            <img src="/mohatsav-removebg-preview.png" alt="Azadi" className="h-14 w-auto" />
-            <img src="/footer3-removebg-preview.png" alt="Swachh" className="h-14 w-auto" />
-            <img src="/footer4-removebg-preview.png" alt="Digital India" className="h-12 w-auto" />
+            <Image src="/logo1_footer-removebg.png" alt="Seal" width={56} height={56} className="h-14 w-auto" />
+            <Image src="/mohatsav-removebg-preview.png" alt="Azadi" width={56} height={56} className="h-14 w-auto" />
+            <Image src="/footer3-removebg-preview.png" alt="Swachh" width={56} height={56} className="h-14 w-auto" />
+            <Image src="/footer4-removebg-preview.png" alt="Digital India" width={48} height={48} className="h-12 w-auto" />
           </div>
           <div className="mt-8 text-center md:text-left">
             <div className="font-bold text-2xl md:text-3xl mb-3">{t.footer.social}</div>

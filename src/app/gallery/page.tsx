@@ -62,9 +62,9 @@ export default function ProGallery() {
     setSelectedImage(images[newIndex]);
   };
 
-  const handleImageClick = (e: React.MouseEvent<HTMLImageElement>) => {
+  const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, currentTarget } = e;
-    const middle = currentTarget.offsetWidth / 2;
+    const middle = currentTarget.clientWidth / 2;
     if (clientX < middle) {
       prevImage();
     } else {
@@ -106,10 +106,11 @@ export default function ProGallery() {
               transition={{ duration: 0.6, delay: idx * 0.05 }}
               onClick={() => openLightbox(img, idx)}
             >
-              <img
+              <Image
                 src={img}
                 alt={`gallery-${idx}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </motion.div>
@@ -146,17 +147,23 @@ export default function ProGallery() {
                   <ChevronRight size={40} />
                 </button>
 
-                <motion.img
+                <motion.div
                   key={currentIndex}
-                  src={selectedImage}
-                  alt="Selected"
-                  className="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl cursor-pointer"
+                  className="relative w-full max-h-[80vh] flex items-center justify-center cursor-pointer"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
                   transition={{ duration: 0.4 }}
                   onClick={handleImageClick}
-                />
+                >
+                  <Image
+                    src={selectedImage}
+                    alt="Selected"
+                    width={1200}
+                    height={800}
+                    className="w-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
+                  />
+                </motion.div>
               </div>
             </motion.div>
           )}

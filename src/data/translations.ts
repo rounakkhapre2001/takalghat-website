@@ -37,7 +37,7 @@ export const translations = {
       rights:
         "2025 gptakalghat.com - All Rights Reserved. | Designed and Developed by ",
     },
-
+//aboutus//
     aboutTitle: "ABOUT US",
     aboutText: `At Gram Panchayat Takalghat, our mission is to promote inclusive growth, empower citizens through 
     participation, and create a clean, sustainable, and progressive environment. From rural infrastructure 

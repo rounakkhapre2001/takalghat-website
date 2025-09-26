@@ -8,6 +8,16 @@ import { motion } from "framer-motion";
 export default function AboutPage() {
   const { t } = useContext(LanguageContext);
 
+  // ✅ Offer cards ko strict type ke sath define kiya
+  const offers: {
+    title: "offer1Title" | "offer2Title" | "offer3Title";
+    desc: "offer1Desc" | "offer2Desc" | "offer3Desc";
+  }[] = [
+    { title: "offer1Title", desc: "offer1Desc" },
+    { title: "offer2Title", desc: "offer2Desc" },
+    { title: "offer3Title", desc: "offer3Desc" },
+  ];
+
   return (
     <div className="w-full bg-gradient-to-br from-orange-200 via-white to-green-200">
       {/* ================= Hero Section ================= */}
@@ -169,7 +179,7 @@ export default function AboutPage() {
 
           {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-            {[1, 2, 3].map((card, i) => (
+            {offers.map((card, i) => (
               <motion.div
                 key={i}
                 className="bg-white rounded-lg shadow-md p-6 text-left"
@@ -180,10 +190,10 @@ export default function AboutPage() {
                 whileHover={{ scale: 1.05 }}
               >
                 <h3 className="text-lg md:text-xl font-bold text-green-900 mb-2">
-                  {(t as any)[`offer${card}Title`]}
+                  {t[card.title]}
                 </h3>
                 <p className="text-green-800 text-sm md:text-base">
-                  {(t as any)[`offer${card}Desc`]}
+                  {t[card.desc]}
                 </p>
               </motion.div>
             ))}

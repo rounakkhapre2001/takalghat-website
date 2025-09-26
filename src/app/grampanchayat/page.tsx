@@ -3,6 +3,7 @@
 import React, { useContext } from "react";
 import Image from "next/image";
 import { LanguageContext } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 // ✅ Proper type banaya
 type Person = {
@@ -28,19 +29,37 @@ export default function TeamPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-white">
-          <h1 className="text-3xl md:text-4xl font-bold">{t.teamTitle}</h1>
+          <motion.h1
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold"
+          >
+            {t.teamTitle}
+          </motion.h1>
         </div>
       </section>
 
       {/* 🔹 Members Section */}
       <section className="max-w-5xl mx-auto px-4 py-16">
-        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight border-l-8 border-orange-500 pl-4 py-2 bg-gradient-to-r from-orange-50 via-white to-white shadow-sm mb-12 text-orange-600">
+        <motion.h2
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-2xl md:text-3xl font-extrabold tracking-tight border-l-8 border-orange-500 pl-4 py-2 bg-gradient-to-r from-orange-50 via-white to-white shadow-sm mb-12 text-orange-600"
+        >
           {t.electedMembersTitle}
-        </h2>
+        </motion.h2>
 
         {t.electedMembers?.map((person: Person, idx: number) => (
-          <div
+          <motion.div
             key={person.name}
+            initial={{ opacity: 0, x: idx % 2 === 0 ? -80 : 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
             className={`flex flex-col md:flex-row items-center gap-8 mb-14 ${
               idx % 2 === 1 ? "md:flex-row-reverse" : ""
             }`}
@@ -64,17 +83,27 @@ export default function TeamPage() {
               </span>
               <p className="text-[#363636] text-sm">{person.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
 
         {/* 🔹 Administrative Staff Section */}
-        <h2 className="text-2xl md:text-3xl font-extrabold text-green-700 tracking-tight border-l-8 border-green-400 pl-4 py-2 bg-gradient-to-r from-green-50 via-white to-white shadow-sm mb-6">
+        <motion.h2
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-2xl md:text-3xl font-extrabold text-green-700 tracking-tight border-l-8 border-green-400 pl-4 py-2 bg-gradient-to-r from-green-50 via-white to-white shadow-sm mb-6"
+        >
           {t.staffTitle}
-        </h2>
+        </motion.h2>
 
         {t.staff?.map((person: Person, idx: number) => (
-          <div
+          <motion.div
             key={person.name}
+            initial={{ opacity: 0, x: idx % 2 === 0 ? 80 : -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
             className={`flex flex-col md:flex-row items-center gap-8 mb-14 ${
               idx % 2 === 0 ? "md:flex-row-reverse" : ""
             }`}
@@ -98,7 +127,7 @@ export default function TeamPage() {
               </span>
               <p className="text-[#363636] text-sm">{person.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </section>
     </div>

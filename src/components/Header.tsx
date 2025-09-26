@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useContext, useRef } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { LanguageContext } from '../context/LanguageContext';
+import { useState, useEffect, useContext, useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { LanguageContext } from "../context/LanguageContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +17,6 @@ export default function Header() {
   useEffect(() => {
     setIsClient(true);
 
-    // close dropdown when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
@@ -25,44 +25,35 @@ export default function Header() {
         setIsDropdownOpen(false);
       }
     };
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
   const navLinks = [
-    { href: '/about', label: t.about },
-    { href: '/grampanchayat', label: t.leaders },
-    { href: '/Service_Schemes', label: t.events },
-    { href: '/gallery', label: t.gallery },
-    { href: '/contact', label: t.contact },
+    { href: "/about", label: t.about },
+    { href: "/grampanchayat", label: t.leaders },
+    { href: "/Service_Schemes", label: t.events },
+    { href: "/gallery", label: t.gallery },
+    { href: "/contact", label: t.contact },
   ];
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const toggleDropdown = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsDropdownOpen(prev => !prev);
-  };
-
-  const handleMouseEnter = () => setIsDropdownOpen(true);
-  const handleMouseLeave = () => setIsDropdownOpen(false);
-
-  const handleLinkClick = () => setIsDropdownOpen(false);
 
   if (!isClient) return null;
 
   return (
-    <header className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-11/12 md:w-3/4 max-w-5xl rounded-full backdrop-blur-md bg-white/50 shadow-lg p-3">
+    <motion.header
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-11/12 md:w-3/4 max-w-5xl rounded-full backdrop-blur-md bg-white/50 shadow-lg p-3"
+    >
       <nav className="flex items-center justify-between">
-
         {/* Desktop Left Dropdown */}
         <div className="flex items-center space-x-6 w-1/3 hidden md:flex">
           <ul className="flex items-center">
             <li ref={dropdownRef} className="relative">
               <button
                 className="text-gray-800 hover:text-green-700 transition-colors duration-300 font-semibold cursor-pointer flex items-center text-lg md:text-base px-4 py-2"
-                onClick={toggleDropdown}
-                onMouseEnter={handleMouseEnter}
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               >
                 {t.allPages}
                 <svg
@@ -80,43 +71,52 @@ export default function Header() {
                 </svg>
               </button>
 
-              {isDropdownOpen && (
-                <div
-                  className="absolute top-full left-0 mt-7 bg-white rounded-lg shadow-xl py-4 px-4 w-[36rem] z-40"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <div className="flex">
-                    <div className="w-1/2 p-2 max-width: 65%;">
-                      <Image
-                        src="/img90.png"
-                        alt="Dropdown image"
-                        width={180}
-                        height={180}
-                        className="rounded-lg object-cover"
-                      />
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute top-full left-0 mt-7 bg-white rounded-lg shadow-xl py-4 px-4 w-[36rem] z-40"
+                  >
+                    <div className="flex">
+                      <div className="w-1/2 p-2 max-width: 65%;">
+                        <Image
+                          src="/img90.png"
+                          alt="Dropdown image"
+                          width={180}
+                          height={180}
+                          className="rounded-lg object-cover"
+                        />
+                      </div>
+                      <div className="w-1/2 p-4 grid grid-cols-2 gap-y-2 gap-x-3">
+                        {navLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            className="block text-gray-700 hover:text-green-700 font-medium text-base"
+                            onClick={() => setIsDropdownOpen(false)}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                    <div className="w-1/2 p-4 grid grid-cols-2 gap-y-2 gap-x-3">
-                      {navLinks.map(link => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          className="block text-gray-700 hover:text-green-700 font-medium text-base"
-                          onClick={handleLinkClick}
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </li>
           </ul>
         </div>
 
         {/* Center Logo (Desktop) */}
-        <div className="flex-1 text-center hidden md:block">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="flex-1 text-center hidden md:block"
+        >
           <Link href="/">
             <div className="flex items-center justify-center space-x-2">
               <Image
@@ -131,16 +131,18 @@ export default function Header() {
               </span>
             </div>
           </Link>
-        </div>
+        </motion.div>
 
         {/* Right Section */}
         <div className="flex items-center justify-end w-1/3 hidden md:flex space-x-3">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={toggleLanguage}
             className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium shadow-md text-base"
           >
             {t.marathiBtn}
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Navigation */}
@@ -163,7 +165,7 @@ export default function Header() {
 
           {/* Hamburger Menu Button */}
           <button
-            onClick={toggleMenu}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-gray-800 focus:outline-none"
           >
             <svg
@@ -178,43 +180,51 @@ export default function Header() {
                 strokeWidth="2"
                 d={
                   isMenuOpen
-                    ? 'M6 18L18 6M6 6l12 12'
-                    : 'M4 6h16M4 12h16m-7 6h7'
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16m-7 6h7"
                 }
               ></path>
             </svg>
           </button>
         </div>
-        
-        {/* Mobile Menu */}
-        <div
-          className={`${
-            isMenuOpen ? 'block' : 'hidden'
-          } md:hidden w-full mt-9 bg-white/80 rounded-lg shadow-lg`}
-        >
-          <ul className="flex flex-col p-4 space-y-2">
-            {navLinks.map(link => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-md"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li className="flex space-x-2">
-              <button
-                onClick={toggleLanguage}
-                className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium"
-              >
-                {t.marathiBtn}
-              </button>
-            </li>
-          </ul>
-        </div>
       </nav>
-    </header>
+
+      {/* Mobile Menu with motion */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden w-full mt-4 bg-white/90 rounded-lg shadow-lg"
+          >
+            <ul className="flex flex-col p-4 space-y-2">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-md"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="flex space-x-2">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={toggleLanguage}
+                  className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium"
+                >
+                  {t.marathiBtn}
+                </motion.button>
+              </li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

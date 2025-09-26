@@ -75,7 +75,7 @@ export default function ProGallery() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative w-full h-[500px] md:h-[800px]">
+      <section className="relative w-full h-[500px] md:h-[800px] overflow-hidden">
         <Image
           src="/img3.jpg"
           alt="Gallery Banner"
@@ -83,27 +83,48 @@ export default function ProGallery() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-3xl md:text-4xl font-bold">OUR GALLERY</h1>
-        </div>
+        <motion.div
+          className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white text-center"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.h1
+            className="text-3xl md:text-5xl font-extrabold tracking-wide"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
+          >
+            OUR GALLERY
+          </motion.h1>
+        </motion.div>
       </section>
 
       {/* Gallery Section */}
       <section className="py-16 bg-gradient-to-br from-orange-300 via-white to-green-300">
-        <div className="text-center mb-12"></div>
-
-        {/* Gallery Grid */}
-        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 px-4 md:px-12 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[220px]">
+        <motion.div
+          className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 px-4 md:px-12 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[220px]"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: { staggerChildren: 0.08 },
+            },
+          }}
+        >
           {images.map((img, idx) => (
             <motion.div
               key={idx}
               className={`relative rounded-2xl overflow-hidden shadow-lg cursor-pointer group 
                 ${idx < spanClasses.length ? `md:${spanClasses[idx]}` : ""}`}
-              whileHover={{ scale: 1.04 }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.05 }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.9, y: 30, rotate: -2 },
+                show: { opacity: 1, scale: 1, y: 0, rotate: 0 },
+              }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              whileHover={{ scale: 1.05, rotate: 1 }}
               onClick={() => openLightbox(img, idx)}
             >
               <Image
@@ -112,48 +133,61 @@ export default function ProGallery() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              {/* Overlay Caption */}
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <p className="text-white text-lg font-semibold tracking-wide">
+                  View Image
+                </p>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Lightbox */}
         <AnimatePresence>
           {selectedImage && (
             <motion.div
-              className="fixed inset-0 bg-black/95 flex items-center justify-center z-50 p-4"
+              className="fixed inset-0 backdrop-blur-sm bg-black/90 flex items-center justify-center z-50 p-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
               <div className="relative max-w-5xl w-full">
-                <button
+                {/* Close */}
+                <motion.button
                   className="absolute top-4 right-4 text-white hover:text-red-400 transition z-50"
+                  whileHover={{ scale: 1.2 }}
                   onClick={() => setSelectedImage(null)}
                 >
                   <X size={32} />
-                </button>
+                </motion.button>
 
-                <button
+                {/* Prev */}
+                <motion.button
                   className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-indigo-400 z-50"
+                  whileHover={{ scale: 1.2 }}
                   onClick={prevImage}
                 >
                   <ChevronLeft size={40} />
-                </button>
-                <button
+                </motion.button>
+
+                {/* Next */}
+                <motion.button
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-indigo-400 z-50"
+                  whileHover={{ scale: 1.2 }}
                   onClick={nextImage}
                 >
                   <ChevronRight size={40} />
-                </button>
+                </motion.button>
 
+                {/* Image */}
                 <motion.div
                   key={currentIndex}
                   className="relative w-full max-h-[80vh] flex items-center justify-center cursor-pointer"
-                  initial={{ scale: 0.9, opacity: 0 }}
+                  initial={{ scale: 0.85, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.9, opacity: 0 }}
-                  transition={{ duration: 0.4 }}
+                  exit={{ scale: 0.85, opacity: 0 }}
+                  transition={{ duration: 0.4, type: "spring" }}
                   onClick={handleImageClick}
                 >
                   <Image

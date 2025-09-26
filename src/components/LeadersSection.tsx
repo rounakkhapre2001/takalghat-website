@@ -7,6 +7,7 @@ import { Autoplay } from "swiper/modules";
 import Image from "next/image";
 import React, { useContext } from "react";
 import { LanguageContext } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function LeadersSection() {
   const { t } = useContext(LanguageContext);
@@ -25,25 +26,36 @@ export default function LeadersSection() {
   return (
     <>
       {/* About & Heading Section */}
-<section className="w-full py-12 px-6 bg-white">
-  <div className="max-w-5xl mx-auto">
-    <div className="grid md:grid-cols-2 gap-8 items-center mb-10">
-      <div>
-        <p className="text-sm uppercase tracking-widest text-gray-600 mb-2">
-          {t.leaders1.about}
-        </p>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 leading-snug mb-6">
-          {t.leaders1.title}
-        </h2>
-      </div>
-      <div>
-        <p className="text-lg font-bold text-green-700 leading-relaxed">
-          {t.leaders1.description}
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+      <section className="w-full py-12 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-center mb-10">
+            <div>
+              <p className="text-sm uppercase tracking-widest text-gray-600 mb-2">
+                {t.leaders1.about}
+              </p>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl font-extrabold text-green-800 leading-snug mb-6"
+              >
+                {t.leaders1.title}
+              </motion.h2>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-lg font-bold text-green-700 leading-relaxed">
+                {t.leaders1.description}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Leaders Slider */}
       <section className="w-full bg-gradient-to-b from-orange-300 via-white to-green-200 py-10">
@@ -55,7 +67,7 @@ export default function LeadersSection() {
               disableOnInteraction: false,
               reverseDirection: true,
             }}
-            slidesPerView={4}   // ✅ Default 4 images
+            slidesPerView={4}
             speed={4000}
             loop={true}
             spaceBetween={20}
@@ -64,12 +76,17 @@ export default function LeadersSection() {
               640: { slidesPerView: 2 },
               768: { slidesPerView: 3 },
               1024: { slidesPerView: 4 },
-              1280: { slidesPerView: 4 }, // ✅ lock at 4 even on big screen
             }}
           >
             {leaders.map((leader, idx) => (
               <SwiperSlide key={idx}>
-                <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
+                >
                   <Image
                     src={leader.img}
                     alt={leader.name}
@@ -83,7 +100,7 @@ export default function LeadersSection() {
                     </h3>
                     <p className="text-xs text-gray-600">{leader.name}</p>
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>

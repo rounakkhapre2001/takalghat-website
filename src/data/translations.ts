@@ -167,34 +167,34 @@ export const translations = {
     electedMembersTitle: "Elected Members",
     electedMembers: [
       {
-        name: "Mrs. Shardatai Gyaneshwarji Bhingare",
+        name: "Mrs. Shardatai Dnyaneshwarji Shingare",
         designation: "Sarpanch",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sar.jpg",
         description:
           "As Sarpanch of Gram Panchayat Takalghat, [Sarpanch Name] leads village governance, ensures transparent administration, focuses on ward-level development (roads, water supply, sanitation), and works to implement state and central rural schemes for the welfare and progress of the community.",
       },
       {
-        name: "Shri. Umeshrav Natthuji Kavale",
+        name: "Mr. Umeshrao Naththooji Kawale",
         designation: "Upa-Sarpanch",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/upsar.jpg",
         description:
           "As Upa-Sarpanch of Gram Panchayat Takalghat, [Upa-Sarpanch Name] supports the Sarpanch in village governance, coordinates development activities across wards, assists in resolving local issues, and helps ensure the effective implementation of government schemes for the benefit of all residents.",
       },
       {
-        name: "Shri. Vedant Prabhakar Wasad",
+        name: "Mr. Vedant Prabhakarrao Vasad",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas.jpg",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Mrs. Meenatai Umeshrav Dayre",
+        name: "Mrs. Meenatai Nileshrao Dyare",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas2.jpg",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
@@ -202,47 +202,47 @@ export const translations = {
         name: "Mrs. Babitatai Tarachandji Bahadure",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas3.jpg",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Mrs. RajashreeTai Tarachandji Pund",
+        name: "Mrs. Rajshreetai Ramdasji Pund",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas4.jpg",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Mrs. Anjanatai Mahadevrao Erpate",
+        name: "Mrs. Anjanatai Mahadevrao Irpate",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas5.jpg",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Mrs. Tarabai Gyaneshwarji Bhagat",
+        name: "Mrs. Tarabai Dnyaneshwarji Bhagat",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas6.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Mrs. Anuradhatai Vijayrao Khangar",
+        name: "Mrs. Anuradhatai Vijeyrao Khangar",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas7.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Shri. Chandrashekharrao Haribhauji Kavale",
+        name: "Mr. Chandrashekharrao Haribhauji Kawale",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas8.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
@@ -250,15 +250,15 @@ export const translations = {
         name: "Mrs. Sadhanatai Sanjayji Meshram",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas9.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Ms. Komaltai Digambarji Katare",
+        name: "Ms. Komaltai Digambarji Katre",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas10.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
@@ -266,47 +266,47 @@ export const translations = {
         name: "Mrs. Alkatai Gopalrao Wankhede",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas11.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Shri. Madhukarrao Kisanji Khode",
+        name: "Mr. Madhukarrao Kisanji Khode",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas12.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Mrs. Rekhatai Rohitrao Tiwari",
+        name: "Mrs. Rekhatai Rohitrao Tiwari ",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas13.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Shri. Narendraji Ganpatrao Yesansure",
+        name: "Mr. Narendraji Ganpatrao Yesansure",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas14.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Shri. Chandrashekharrao Khushalrao Ingole",
+        name: "Mr. Chandrashekharrao Khushalrao Ingole",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas15.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
       {
-        name: "Mrs. Bebitai Dineshrav Raut",
+        name: "Mrs. Babytai Dineshrao Raut",
         designation: "Panchayat Member",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas16.png",
         description:
           "As elected Panchayat Members of Gram Panchayat Takalghat, they represent their respective wards, raise local concerns, participate in decision-making, and contribute to development initiatives such as infrastructure, sanitation, water supply, and welfare programs for the community.",
       },
@@ -314,7 +314,7 @@ export const translations = {
         name: "Smt. Suhasini M. Kolhe",
         designation: "Panchayat Adhikari",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas17.png",
         description:
           "As Panchayat Adhikari of Gram Panchayat Takalghat, [Officer Name] provides administrative guidance, ensures proper execution of government policies, supervises Gram Panchayat functions, and supports the Sarpanch, Upa-Sarpanch, and Members in delivering effective governance and development to the village.",
       },
@@ -516,146 +516,146 @@ export const translations = {
     electedMembersTitle: "निवडलेले सदस्य",
     electedMembers: [
       {
-        name: "शारदाताई ज्ञानेश्वरजी भिंगारे",
+        name: "सौ. शारदाताई ज्ञानेश्वरजी शिंगारे",
         designation: "सरपंच",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sar.jpg",
         description:
           "ग्रामपंचायत टाकळघाटच्या सरपंच म्हणून [सरपंचाचे नाव] गावाचे प्रशासन चालवतात, पारदर्शक कारभार करतात, प्रभागनिहाय विकास (रस्ते, पाणीपुरवठा, स्वच्छता) यावर लक्ष केंद्रित करतात आणि ग्रामविकासासाठी राज्य व केंद्र शासनाच्या योजना राबवतात.",
       },
       {
-        name: "उमेशराव नथ्थुजी कवळे",
+        name: "श्री. उमेशराव नथ्थूजी कावळे",
         designation: "उपसरपंच",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/upsar.jpg",
         description:
           "ग्रामपंचायत टाकळघाटचे उपसरपंच म्हणून [उपसरपंचाचे नाव] सरपंचांना प्रशासनात मदत करतात, प्रभागांमधील विकासकामे समन्वयित करतात, स्थानिक प्रश्न सोडविण्यात सहाय्य करतात आणि ग्रामस्थांच्या हितासाठी शासकीय योजना प्रभावीपणे राबवतात.",
       },
       {
-        name: "वेदांत प्रभाकर वसाड",
-        designation: "पंचायत सदस्य",
+        name: "श्री. वेदांत प्रभाकरराव वासाड",
+        designation: "सदस्य",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas.jpg",
         description:
           "ग्रामपंचायत टाकळघाटचे निवडून आलेले सदस्य म्हणून ते आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक समस्या मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "मीनाताई उमेशराव डायर",
-        designation: "पंचायत सदस्य",
+        name: "सौ. मीनाताई निलेशराव डायरे",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas2.jpg",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "बबीताताई ताराचंदजी बहादुरे",
-        designation: "पंचायत सदस्य",
+        name: "सौ. बबिताताई ताराचंदजी बहादुरे",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas3.jpg",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "राजश्रीताई ताराचंदजी पुंड",
-        designation: "पंचायत सदस्य",
+        name: "सौ. राजश्रीताई रामदासजी पुंड",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas4.jpg",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "अंजना ताई महादवराव एरपाटे",
-        designation: "पंचायत सदस्य",
+        name: "सौ. अंजनाताई महादेवराव इरपाते",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas5.jpg",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "ताराबाई ज्ञानेश्वरजी भगत",
-        designation: "पंचायत सदस्य",
+        name: "सौ. ताराबाई ज्ञानेश्वरजी भगत",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas6.png",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "अनुराधाताई विजयराव खंगार",
-        designation: "पंचायत सदस्य",
+        name: "सौ. अनुराधाताई विजयराव खंगार",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas7.png",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "चंद्रशेखरराव हरिभाऊजी कवळे",
-        designation: "पंचायत सदस्य",
+        name: "श्री. चंद्रशेखरराव हरिभाऊजी कावळे",
+        designation: "सदस्य",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas8.png",
         description:
           "ग्रामपंचायत टाकळघाटचे निवडून आलेले सदस्य म्हणून ते आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक समस्या मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "साधनाताई संजयजी मेश्रराम",
-        designation: "पंचायत सदस्य",
+        name: "सौ. साधनाताई संजयजी मेश्राम",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas9.png",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "कोमलताई दिगंबरजी कटारे",
-        designation: "पंचायत सदस्य",
+        name: "कु. कोमलताई दिगांबरजी कटरे",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas10.png",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "अल्काताई गोपाळराव वानखेडे",
-        designation: "पंचायत सदस्य",
+        name: "सौ. अल्काताई गोपालराव वानखेडे",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas11.png",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "मधुकरराव किसनजी खोड़े",
-        designation: "पंचायत सदस्य",
+        name: "श्री. मधुकरराव किसनजी खोडे",
+        designation: "सदस्य",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas12.png",
         description:
           "ग्रामपंचायत टाकळघाटचे निवडून आलेले सदस्य म्हणून ते आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक समस्या मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "रेखाताई रोहितराव तिवारी",
-        designation: "पंचायत सदस्य",
+        name: "सौ. रेखाताई रोहीतराव तिवारी",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas13.png",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "नरेंद्रजी गणपतराव येसन्सुरे",
-        designation: "पंचायत सदस्य",
+        name: "श्री. नरेंद्रजी गणपतराव येसनसुरे",
+        designation: "सदस्य",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas14.png",
         description:
           "ग्रामपंचायत टाकळघाटचे निवडून आलेले सदस्य म्हणून ते आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक समस्या मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "चंद्रशेखरराव खुशालराव इंगोले",
-        designation: "पंचायत सदस्य",
+        name: "श्री. चंद्रशेखरराव खुशालराव इंगोले",
+        designation: "सदस्य",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas15.png",
         description:
           "ग्रामपंचायत टाकळघाटचे निवडून आलेले सदस्य म्हणून ते आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक समस्या मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
       {
-        name: "बेबीताई दिनेशराव राऊत",
-        designation: "पंचायत सदस्य",
+        name: "सौ. बेबीताई दिनेशराव राऊत",
+        designation: "सदस्या",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas16.png",
         description:
           "ग्रामपंचायत टाकळघाटच्या निवडून आलेल्या सदस्य म्हणून त्या आपल्या प्रभागाचे प्रतिनिधित्व करतात, स्थानिक प्रश्न मांडतात, निर्णय प्रक्रियेत सहभागी होतात आणि पायाभूत सुविधा, स्वच्छता, पाणीपुरवठा व कल्याणकारी योजनांच्या अंमलबजावणीत योगदान देतात.",
       },
@@ -663,7 +663,7 @@ export const translations = {
         name: "सुहासिनी एम. कोळे",
         designation: "पंचायत अधिकारी",
         term: "2024-2029",
-        photo: "/user-profile-icon.jpg",
+        photo: "/sadas17.png",
         description:
           "ग्रामपंचायत टाकळघाटच्या पंचायत अधिकारी म्हणून [अधिकाऱ्याचे नाव] प्रशासकीय मार्गदर्शन करतात, शासन धोरणांची योग्य अंमलबजावणी करतात, ग्रामपंचायतीचे कार्य पाहतात आणि सरपंच, उपसरपंच व सदस्यांना प्रभावी प्रशासन व विकास देण्यात मदत करतात.",
       },

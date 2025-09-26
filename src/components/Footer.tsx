@@ -2,7 +2,8 @@
 
 import React, { useContext } from "react";
 import { LanguageContext } from "../context/LanguageContext";
-import Image from "next/image"; // ✅ import Image
+import Image from "next/image";
+import { motion } from "framer-motion"; // ✅ motion import kiya
 
 // Icons
 const IconFacebook = () => (
@@ -27,10 +28,22 @@ const Footer = () => {
   const { t } = useContext(LanguageContext);
 
   return (
-    <footer className="bg-green-900 text-white font-poppins py-8 px-3">
+    <motion.footer
+      className="bg-green-900 text-white font-poppins py-8 px-3"
+      initial={{ opacity: 0, y: 50 }} // 👇 Start hidden
+      whileInView={{ opacity: 1, y: 0 }} // 👇 Animate on scroll
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-y-8 md:gap-x-12">
         {/* LEFT */}
-        <div className="flex flex-col w-full md:w-1/2 mb-8 md:mb-0">
+        <motion.div
+          className="flex flex-col w-full md:w-1/2 mb-8 md:mb-0"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <div className="text-center md:text-left">
             <div className="font-extrabold text-xl mb-1">{t.footer.title}</div>
             <div className="font-semibold text-base mb-2">{t.footer.subtitle}</div>
@@ -49,10 +62,16 @@ const Footer = () => {
               <a href="#" className="hover:text-gray-300" aria-label="Instagram"><IconInstagram /></a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* RIGHT */}
-        <div className="flex flex-col w-full md:w-1/2">
+        <motion.div
+          className="flex flex-col w-full md:w-1/2"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <div className="text-2xl md:text-3xl font-bold mb-5 text-center md:text-left">{t.footer.country}</div>
           <div className="space-y-3 text-base text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start">
@@ -72,19 +91,25 @@ const Footer = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="w-full flex justify-center mt-8 pt-4 border-t border-[#3a3e6e] text-gray-400 text-sm md:text-base select-none">
+      <motion.div
+        className="w-full flex justify-center mt-8 pt-4 border-t border-[#3a3e6e] text-gray-400 text-sm md:text-base select-none"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        viewport={{ once: true }}
+      >
         <span>{t.footer.copyright}</span>
         <span className="mx-1 text-purple-700 font-bold text-sm">©</span>
         <span className="mx-1">
           {t.footer.rights}
           <span className="text-gray-300 font-semibold ml-1">IITIAN INFOTECH</span>
         </span>
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 };
 

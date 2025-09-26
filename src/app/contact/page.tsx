@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import Image from "next/image";
 import { LanguageContext } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   const { t } = useContext(LanguageContext);
@@ -24,7 +25,12 @@ export default function ContactPage() {
       <div className="relative z-10 w-full max-w-6xl px-4 md:px-12 flex flex-col md:flex-row items-center justify-center md:space-x-12 pt-30 md:pt-40">
         
         {/* Left Side: Contact Form */}
-        <div className="w-full md:w-1/2 bg-[#11312f] rounded-xl shadow-2xl p-6 md:p-8 space-y-6">
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full md:w-1/2 bg-[#11312f] rounded-xl shadow-2xl p-6 md:p-8 space-y-6"
+        >
           <h2 className="text-2xl md:text-3xl font-bold">{t.formTitle}</h2>
           <p className="text-gray-300 text-sm md:text-base">{t.formDesc}</p>
 
@@ -73,18 +79,32 @@ export default function ContactPage() {
                 placeholder={t.message}
               ></textarea>
             </div>
-            <button
+            <motion.button
               type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="mt-4 w-full px-6 py-3 bg-[#1d4f4e] hover:bg-[#246664] text-white text-base md:text-lg font-bold rounded-full shadow-md transition flex items-center justify-center space-x-2"
             >
               <span>{t.sendBtn}</span>
-              <span className="text-xl">→</span>
-            </button>
+              <motion.span
+                initial={{ x: 0 }}
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.2 }}
+                className="text-xl"
+              >
+                →
+              </motion.span>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
 
         {/* Right Side: Contact Information */}
-        <div className="w-full md:w-1/2 md:p-12 mt-10 md:mt-0 text-center md:text-left">
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          className="w-full md:w-1/2 md:p-12 mt-10 md:mt-0 text-center md:text-left"
+        >
           <h3 className="text-2xl md:text-3xl font-bold mb-2 text-[#11312f]">
             {t.rightTitle}
           </h3>
@@ -104,7 +124,7 @@ export default function ContactPage() {
               <p className="text-black">123 Main Street, New York, NY 10001</p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

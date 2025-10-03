@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabaseClient";
+import { supabaseAdmin } from "@/lib/supabaseServer"; // <-- use server client
 
 // UPDATE member
 export async function PATCH(req: Request) {
@@ -21,16 +21,16 @@ export async function PATCH(req: Request) {
     if (file) {
       const fileData = await file.arrayBuffer();
       const fileName = `${Date.now()}-${file.name}`;
-      const { error: uploadError } = await supabase.storage
+      const { error: uploadError } = await supabaseAdmin.storage
         .from("team-photos")
         .upload(fileName, new Uint8Array(fileData), { cacheControl: "3600", upsert: true });
       if (uploadError) return NextResponse.json({ error: uploadError.message }, { status: 500 });
 
-      const { data: urlData } = supabase.storage.from("team-photos").getPublicUrl(fileName);
+      const { data: urlData } = supabaseAdmin.storage.from("team-photos").getPublicUrl(fileName);
       photo_url = urlData.publicUrl;
     }
 
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from("team")
       .update({ name, role, category, term, description, ...(photo_url ? { photo_url } : {}) })
       .eq("id", Number(id))
@@ -53,7 +53,7 @@ export async function DELETE(req: Request) {
     const id = url.pathname.split("/").pop();
     if (!id) return NextResponse.json({ error: "ID missing" }, { status: 400 });
 
-    const { data, error } = await supabase.from("team").delete().eq("id", Number(id));
+    const { data, error } = await supabaseAdmin.from("team").delete().eq("id", Number(id));
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ success: true, data });
   } catch (err: unknown) {

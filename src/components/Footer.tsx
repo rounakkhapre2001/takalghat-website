@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useContext } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion"; // motion import
 

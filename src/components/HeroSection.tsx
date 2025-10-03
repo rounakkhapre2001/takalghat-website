@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useContext } from "react";
 
 const HeroSection = () => {
 
@@ -71,7 +70,7 @@ const HeroSection = () => {
       </div>
 
       {/* ----------------- Mobile View ----------------- */}
-      <div className="block md:hidden w-full flex flex-col items-center justify-start pt-12">
+      <div className="block md:hidden w-full flex-col items-center justify-start pt-12">
         {/* Rotating Circle Logo */}
         <motion.div
           className="relative top-20 left-38 w-20 h-24 mx-auto"

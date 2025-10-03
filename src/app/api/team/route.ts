@@ -7,8 +7,8 @@ export async function GET() {
     const { data, error } = await supabase.from("team").select("*").order("created_at", { ascending: false });
     if (error) throw error;
     return NextResponse.json(Array.isArray(data) ? data : []);
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   }
 }
 
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
 
     if (insertError) return NextResponse.json({ error: insertError.message }, { status: 500 });
     return NextResponse.json(data[0]);
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   }
 }

@@ -11,49 +11,71 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Redirect if already logged in
+  // ✅ Check if user already logged in
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session?.user) router.push("/admin");
-    });
+    async function checkSession() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.user) {
+        router.push("/gptakalghat/admin");
+      }
+    }
+    checkSession();
   }, [router]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError("");
+    setLoading(true);
 
-    try {
-      const { data, error: loginError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-      console.log("Supabase login response:", data, loginError); // 🔹 debug log
+    setLoading(false);
 
-      if (loginError) setError(loginError.message);
-      else if (data.session?.user) router.push("/admin");
-      else setError("Login failed: No session returned");
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("An unknown error occurred");
-      }
-    } finally {
-      setLoading(false);
+    if (error) {
+      setError(error.message);
+    } else if (data.session?.user) {
+      router.push("/gptakalghat/admin");
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/loginbg.jpeg')" }}>
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
-      <form onSubmit={handleLogin} className="relative bg-white p-6 rounded-xl shadow-md w-96 z-10">
+
+      <form
+        onSubmit={handleLogin}
+        className="relative bg-white p-6 rounded-xl shadow-md w-96 z-10"
+      >
         <h1 className="text-2xl font-bold mb-4 text-center">Admin Login</h1>
+
         {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-3 py-2 mb-3 border rounded-md" required />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-3 py-2 mb-3 border rounded-md" required />
-        <button type="submit" className={`w-full py-2 rounded-md text-white ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`} disabled={loading}>
+
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full px-3 py-2 mb-3 border rounded-md"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-3 py-2 mb-3 border rounded-md"
+          required
+        />
+
+        <button
+          type="submit"
+          className={`w-full py-2 rounded-md text-white ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
+          disabled={loading}
+        >
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>

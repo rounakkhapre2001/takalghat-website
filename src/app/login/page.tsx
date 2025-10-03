@@ -1,101 +1,54 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
-import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-export default function DashboardPage() {
+export default function LoginPage() {
   const router = useRouter();
-  const [contactsCount, setContactsCount] = useState(0);
-  const [galleryCount, setGalleryCount] = useState(0);
-  const [teamCount, setTeamCount] = useState(0);
-  const [newsCount, setNewsCount] = useState(0);
-  const [eventsCount, setEventsCount] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  // Check if user is logged in
+  // Redirect if already logged in
   useEffect(() => {
-    async function checkUserAndFetch() {
-      const { data } = await supabase.auth.getUser();
-      if (!data.user) {
-        router.push("/login");
-        return;
-      }
-
-      try {
-        const { count: cCount } = await supabase
-          .from("contacts")
-          .select("*", { count: "exact", head: true });
-        const { count: gCount } = await supabase
-          .from("gallery")
-          .select("*", { count: "exact", head: true });
-        const { count: tCount } = await supabase
-          .from("team")
-          .select("*", { count: "exact", head: true });
-        const { count: nCount } = await supabase
-          .from("items")
-          .select("*", { count: "exact", head: true });
-        const { count: eCount } = await supabase
-          .from("events")
-          .select("*", { count: "exact", head: true });
-
-        setContactsCount(cCount || 0);
-        setGalleryCount(gCount || 0);
-        setTeamCount(tCount || 0);
-        setNewsCount(nCount || 0);
-        setEventsCount(eCount || 0);
-      } catch (err) {
-        console.error("Error fetching counts:", err);
-      }
-    }
-
-    checkUserAndFetch();
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) router.push("/admin");
+    });
   }, [router]);
 
-  const stats = [
-    { label: "Contacts", count: contactsCount },
-    { label: "Gallery Images", count: galleryCount },
-    { label: "Team Members", count: teamCount },
-    { label: "News Items", count: newsCount },
-    { label: "Events Items", count: eventsCount },
-  ];
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
-  // Logout function
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    router.push("/login");
+    try {
+      const { data, error: loginError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (loginError) setError(loginError.message);
+      else if (data.session?.user) router.push("/admin");
+      else setError("Login failed: No session returned");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="p-6 min-h-screen bg-gray-50">
-      {/* Admin header inside page only */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-[#0B6477]">
-          Admin Dashboard
-        </h1>
-        <button
-          onClick={handleLogout}
-          className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-        >
-          Logout
+    <div className="flex items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/loginbg.jpeg')" }}>
+      <div className="absolute inset-0 bg-black/40"></div>
+      <form onSubmit={handleLogin} className="relative bg-white p-6 rounded-xl shadow-md w-96 z-10">
+        <h1 className="text-2xl font-bold mb-4 text-center">Admin Login</h1>
+        {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-3 py-2 mb-3 border rounded-md" required />
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-3 py-2 mb-3 border rounded-md" required />
+        <button type="submit" className={`w-full py-2 rounded-md text-white ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`} disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
         </button>
-      </div>
-
-      {/* Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {stats.map((stat, i) => (
-          <motion.div
-            key={i}
-            className="p-6 bg-white rounded-2xl shadow flex flex-col items-center sm:items-start text-center sm:text-left border-t-4 border-[#0AD1C8]"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <p className="text-base text-gray-500">{stat.label}</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B6477]">{stat.count}</h2>
-          </motion.div>
-        ))}
-      </div>
+      </form>
     </div>
   );
 }

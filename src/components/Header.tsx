@@ -42,7 +42,7 @@ export default function Header() {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-11/12 md:w-3/4 max-w-5xl rounded-full backdrop-blur-md bg-white/50 shadow-lg p-3"
+      className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-9/10 md:w-3/4 max-w-5xl rounded-full backdrop-blur-md bg-white/50 shadow-lg p-3"
     >
       <nav className="flex items-center justify-between">
         {/* Desktop Left Dropdown */}
@@ -155,50 +155,52 @@ export default function Header() {
         </motion.div>
 
         {/* Mobile Logo + Button */}
-        <div className="flex justify-between items-center w-full md:hidden">
-          <div className="flex items-center space-x-2">
-            <Link href="/">
-              <Image
-                src="/logo.png"
-                alt="Logo"
-                width={50}
-                height={50}
-                className="object-contain"
-              />
-            </Link>
-            <span className="text-lg font-semibold text-green-800">
-              Takalghat
-            </span>
-          </div>
+        <div className="flex md:hidden items-center justify-between w-full">
+  <div className="flex items-center space-x-1">
+    <Link href="/">
+      <Image
+        src="/logo.png"
+        alt="Logo"
+        width={40}   // smaller logo
+        height={40}
+        className="object-contain"
+      />
+    </Link>
+    <span className="text-sm font-semibold text-green-800">
+      Gram Panchayat Takalghat
+    </span>
+  </div>
 
-          <button className="bg-blue-600 text-white py-2 px-3 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium">
-            Click Me
-          </button>
+  <div className="flex items-center space-x-1">
+    <button className="bg-blue-600 text-white py-1 px-2 rounded-full text-xs hover:bg-blue-700 transition-colors duration-300 font-medium">
+      Translate
+    </button>
+    <button
+      aria-label="Toggle mobile menu"
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+      className="text-gray-800 focus:outline-none ml-1"
+    >
+      <svg
+        className="w-6 h-6"  // smaller menu icon
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d={
+            isMenuOpen
+              ? "M6 18L18 6M6 6l12 12"
+              : "M4 6h16M4 12h16m-7 6h7"
+          }
+        />
+      </svg>
+    </button>
+  </div>
+</div>
 
-          <button
-            aria-label="Toggle mobile menu"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-gray-800 focus:outline-none ml-2"
-          >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d={
-                  isMenuOpen
-                    ? "M6 18L18 6M6 6l12 12"
-                    : "M4 6h16M4 12h16m-7 6h7"
-                }
-              />
-            </svg>
-          </button>
-        </div>
       </nav>
 
       {/* Mobile Menu */}

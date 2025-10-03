@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { LanguageProvider } from "../context/LanguageContext"; // ✅ Import LanguageProvider
+import LayoutWrapper from "./LayoutWrapper"; // ✅ wrapper import
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,21 +12,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Force favicon (tab icon) */}
         <link rel="icon" href="/icon.png" type="image/png" />
       </head>
       <body className={inter.className}>
-        <LanguageProvider>
-          <Header />
-          <main className="relative">{children}</main>
-          <Footer />
-        </LanguageProvider>
+      
+          <LayoutWrapper>{children}</LayoutWrapper>
+
       </body>
     </html>
   );

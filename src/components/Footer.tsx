@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useContext } from "react";
-import { LanguageContext } from "../context/LanguageContext";
 import Image from "next/image";
-import { motion } from "framer-motion"; // ✅ motion import kiya
+import { motion } from "framer-motion"; // motion import
 
 // Icons
 const IconFacebook = () => (
@@ -25,13 +24,11 @@ const IconInstagram = () => (
 );
 
 const Footer = () => {
-  const { t } = useContext(LanguageContext);
-
   return (
     <motion.footer
       className="bg-green-900 text-white font-poppins py-8 px-3"
-      initial={{ opacity: 0, y: 50 }} // 👇 Start hidden
-      whileInView={{ opacity: 1, y: 0 }} // 👇 Animate on scroll
+      initial={{ opacity: 0, y: 50 }} // Start hidden
+      whileInView={{ opacity: 1, y: 0 }} // Animate on scroll
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
     >
@@ -45,8 +42,8 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <div className="text-center md:text-left">
-            <div className="font-extrabold text-xl mb-1">{t.footer.title}</div>
-            <div className="font-semibold text-base mb-2">{t.footer.subtitle}</div>
+            <div className="font-extrabold text-xl mb-1">Grampanchayat Takalghat</div>
+            <div className="font-semibold text-base mb-2">Panchayat Samiti Hingna, District Nagpur</div>
           </div>
           <div className="flex gap-6 mt-3 justify-center md:justify-start">
             <Image src="/logo1_footer-removebg.png" alt="Seal" width={56} height={56} className="h-14 w-auto" />
@@ -55,7 +52,7 @@ const Footer = () => {
             <Image src="/footer4-removebg-preview.png" alt="Digital India" width={48} height={48} className="h-12 w-auto" />
           </div>
           <div className="mt-8 text-center md:text-left">
-            <div className="font-bold text-2xl md:text-3xl mb-3">{t.footer.social}</div>
+            <div className="font-bold text-2xl md:text-3xl mb-3">Social Media</div>
             <div className="flex space-x-6 text-lg justify-center md:justify-start">
               <a href="#" className="hover:text-gray-300" aria-label="Facebook"><IconFacebook /></a>
               <a href="#" className="hover:text-gray-300" aria-label="YouTube"><IconYouTube /></a>
@@ -72,22 +69,22 @@ const Footer = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="text-2xl md:text-3xl font-bold mb-5 text-center md:text-left">{t.footer.country}</div>
+          <div className="text-2xl md:text-3xl font-bold mb-5 text-center md:text-left">India</div>
           <div className="space-y-3 text-base text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start">
               <span className="mr-2">📍</span>
-              <span>{t.footer.address}</span>
+              <span>Grampanchayat Takalghat, Tahsil Hingna, Dist Nagpur, 441122</span>
             </div>
             <div className="flex items-center justify-center md:justify-start">
               <span className="mr-2">✉</span>
               <a href="mailto:grampanchayattakalghat@gmail.com" className="hover:underline">
-                {t.footer.email}
+                grampanchayattakalghat@gmail.com
               </a>
             </div>
             <div className="flex items-center justify-center md:justify-start">
               <span className="mr-2">📱</span>
               <a href="tel:+917507827578" className="hover:underline">
-                {t.footer.phone}
+                +91 7507827578
               </a>
             </div>
           </div>
@@ -102,10 +99,10 @@ const Footer = () => {
         transition={{ duration: 0.6, delay: 0.6 }}
         viewport={{ once: true }}
       >
-        <span>{t.footer.copyright}</span>
+        <span>Copyright</span>
         <span className="mx-1 text-purple-700 font-bold text-sm">©</span>
         <span className="mx-1">
-          {t.footer.rights}
+          2025 gptakalghat.com - All Rights Reserved. | Designed and Developed by
           <span className="text-gray-300 font-semibold ml-1">IITIAN INFOTECH</span>
         </span>
       </motion.div>

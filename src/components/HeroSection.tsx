@@ -1,11 +1,11 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useContext } from "react";
-import { LanguageContext } from "@/context/LanguageContext";
 
 const HeroSection = () => {
-  const { t } = useContext(LanguageContext);
+
 
   return (
     <section className="relative w-full overflow-hidden">
@@ -46,7 +46,7 @@ const HeroSection = () => {
             <circle cx="100" cy="100" r="100" stroke="white" strokeWidth="1" fill="none" />
             <circle cx="100" cy="100" r="60" stroke="white" strokeWidth="1" fill="none" />
             <text fill="white" fontSize="20" letterSpacing="3">
-              <textPath href="#circlePath">{t.hero.logo} •</textPath>
+              <textPath href="#circlePath">Gram Panchayat Takalghat • Village • •</textPath>
             </text>
           </svg>
         </motion.div>
@@ -54,18 +54,18 @@ const HeroSection = () => {
         {/* Content */}
         <div className="relative text-center px-6 mt-20">
           <h1 className="text-7xl font-bold text-white leading-tight">
-            {t.heroTitle1}
+            Our Village, Our Pride.
             <br />
-            {t.heroTitle2}
+            Building Strong Communities
           </h1>
           <p className="mt-6 text-gray-200 max-w-2xl mx-auto text-lg">
-            {t.heroDesc}
+            Towards Sustainable Growth
           </p>
           <Link
             href="/contact"
             className="mt-8 px-8 py-4 bg-green-900 text-white font-bold text-lg rounded-full shadow-lg hover:bg-green-800 transition block w-fit mx-auto"
           >
-            {t.bookAppointment} →
+            Contact Us →
           </Link>
         </div>
       </div>
@@ -92,7 +92,7 @@ const HeroSection = () => {
             <circle cx="100" cy="100" r="100" stroke="white" strokeWidth="1" fill="none" />
             <circle cx="100" cy="100" r="60" stroke="white" strokeWidth="1" fill="none" />
             <text fill="white" fontSize="16" letterSpacing="2">
-              <textPath href="#circlePathMobile">{t.hero1.logo} •</textPath>
+              <textPath href="#circlePathMobile">Gram Panchayat Takalghat • Village • Takalghat • Village • Takalghat •</textPath>
             </text>
           </svg>
         </motion.div>
@@ -100,18 +100,18 @@ const HeroSection = () => {
         {/* Content */}
         <div className="relative text-center px-6 mt-6">
           <h1 className="text-3xl font-bold text-white leading-tight">
-            {t.heroTitle1}
+            Our Village, Our Pride.
             <br />
-            {t.heroTitle2}
+            Building Strong Communities
           </h1>
           <p className="mt-3 text-gray-200 max-w-2xl mx-auto text-sm">
-            {t.heroDesc}
+            Towards Sustainable Growth
           </p>
           <Link
             href="/contact"
             className="mt-4 mb-50 px-6 py-3 bg-green-900 text-white font-bold text-base rounded-full shadow-md hover:bg-green-800 transition block w-fit mx-auto"
           >
-            {t.bookAppointment} →
+            Contact Us →
           </Link>
         </div>
       </div>

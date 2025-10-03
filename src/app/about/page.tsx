@@ -1,34 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { useContext } from "react";
-import { LanguageContext } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
-  const { t } = useContext(LanguageContext);
-
-  // ✅ Offer cards ko strict type ke sath define kiya
-  const offers: {
-    title: "offer1Title" | "offer2Title" | "offer3Title";
-    desc: "offer1Desc" | "offer2Desc" | "offer3Desc";
-  }[] = [
-    { title: "offer1Title", desc: "offer1Desc" },
-    { title: "offer2Title", desc: "offer2Desc" },
-    { title: "offer3Title", desc: "offer3Desc" },
+  const offers = [
+    {
+      title: "Rural Development",
+      desc: "Building better roads, sanitation systems, and public facilities to improve the quality of life for every villager.",
+    },
+    {
+      title: "Education & Awareness",
+      desc: "Promoting literacy, skill development, and awareness programs to empower the youth and women of the village.",
+    },
+    {
+      title: "Health & Sustainability",
+      desc: "Organizing health camps, clean water initiatives, and sustainable practices to ensure the well-being of all residents.",
+    },
   ];
 
   return (
     <div className="w-full bg-gradient-to-br from-orange-200 via-white to-green-200">
       {/* ================= Hero Section ================= */}
       <section className="relative w-full h-[500px] md:h-[800px] overflow-hidden">
-        <Image
-          src="/img3.jpg"
-          alt={t.aboutTitle}
-          fill
-          priority
-          className="object-cover"
-        />
+        <Image src="/img3.jpg" alt="ABOUT US" fill priority className="object-cover" />
         <motion.div
           className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white text-center px-4"
           initial={{ opacity: 0, y: 40 }}
@@ -41,11 +36,10 @@ export default function AboutPage() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
           >
-            {t.aboutTitle}
+            ABOUT US
           </motion.h1>
         </motion.div>
       </section>
-
       {/* ================= About Text Section ================= */}
       <section className="py-12 md:py-16 text-center px-4 md:px-6">
         <motion.div
@@ -56,9 +50,36 @@ export default function AboutPage() {
           transition={{ duration: 0.8 }}
         >
           <p className="text-base md:text-xl font-bold text-green-900 leading-relaxed">
-            {t.aboutText}
+            At Gram Panchayat Takalghat, our mission is to promote inclusive growth, empower citizens through participation, and create a clean, sustainable, and progressive environment. From rural infrastructure and sanitation to health, education, and digital initiatives, we are working towards improving the standard of living for all residents.
           </p>
         </motion.div>
+      </section>
+
+      {/* ================= Highlighted Gram Panchayat Information Card ================= */}
+          <section className="max-w-4xl mx-auto my-12 p-6 rounded-3xl bg-gradient-to-tr from-green-50 via-white to-lime-100 shadow-2xl border-2 border-green-300 relative overflow-hidden">
+        {/* Decorative shapes */}
+        <div className="absolute -top-10 -left-10 w-24 h-24 bg-green-300 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-12 -right-8 w-32 h-32 bg-lime-300 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <h2 className="text-center text-3xl font-extrabold text-green-900 mb-6 tracking-wide">
+          🌿 Gram Panchayat Information
+        </h2>
+
+        <div className="space-y-5 text-green-800 text-lg leading-relaxed">
+          <p>
+            <span className="font-bold text-green-900">Established in 1948</span>, Gram Panchayat Takalghat includes villages such as <span className="font-semibold">Takalghat, Bidganeshpur, Sukli, Murzhadi, Umri, Khapa, Devapur, Gangapur, and Junapani</span>. As per the 2011 census, the population is around <span className="font-bold">16,529</span>.
+          </p>
+          <p>
+            The Panchayat actively works on rural development projects involving roads, sanitation, education, health camps, and water sustainability initiatives.
+          </p>
+          <hr className="border-green-300" />
+          <p>
+            🔹 Key initiatives include <span className="font-semibold">cementing 90% of village roads</span>, daily waste collection, <span className="font-semibold">CCTV surveillance</span>, and water supply improvements.
+          </p>
+          <p>
+            🔹 The Panchayat manages schools, anganwadis, markets, health centers, banks, post office, and religious sites to uplift the community.
+          </p>
+        </div>
       </section>
 
       {/* ================= Team / Gallery Section ================= */}
@@ -164,17 +185,17 @@ export default function AboutPage() {
         >
           {/* Subtitle */}
           <p className="uppercase text-xs md:text-sm text-green-900 font-semibold mb-2">
-            {t.challenge}
+            The Challenge
           </p>
 
           {/* Title */}
           <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-4">
-            {t.offerTitle}
+            What We Offer
           </h2>
 
           {/* Description */}
           <p className="max-w-xl mx-auto text-gray-800 mb-12 text-base md:text-xl">
-            {t.offerDesc}
+            We are dedicated to delivering services that uplift the community, strengthen rural infrastructure, and ensure inclusive growth. Here’s how we serve our people:
           </p>
 
           {/* Cards */}
@@ -190,16 +211,43 @@ export default function AboutPage() {
                 whileHover={{ scale: 1.05 }}
               >
                 <h3 className="text-lg md:text-xl font-bold text-green-900 mb-2">
-                  {t[card.title]}
+                  {card.title}
                 </h3>
-                <p className="text-green-800 text-sm md:text-base">
-                  {t[card.desc]}
-                </p>
+                <p className="text-green-800 text-sm md:text-base">{card.desc}</p>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </section>
+      <section className="max-w-3xl mx-auto my-10 p-6 rounded-2xl shadow-lg bg-gradient-to-tr from-green-50 via-white to-lime-100 border-l-4 border-green-500">
+  <h2 className="text-2xl font-extrabold text-green-900 mb-6 text-center tracking-wide">
+    Major Works by Gram Panchayat Takalghat
+  </h2>
+  <ul className="list-disc pl-6 space-y-4 text-green-900 text-lg font-medium">
+    <li>
+      <span className="font-bold text-green-900">90% concrete road construction completed across the village</span>
+    </li>
+    <li>
+      <span className="font-semibold">Daily garbage collection and management system</span>
+    </li>
+    <li>
+      <span className="font-semibold">CCTV surveillance</span> installed at Panchayat offices
+    </li>
+    <li>
+      Drinking water supplied through <span className="font-semibold">well schemes and pipelines</span>
+    </li>
+    <li>
+      <span className="font-semibold">Distribution of cycles to differently-abled residents</span>
+    </li>
+    <li>
+      <span className="font-semibold">Mosquito fogging</span> in the village for health and hygiene
+    </li>
+    <li>
+      Distribution of <span className="font-semibold">garbage bins</span> and <span className="font-semibold">water filters</span> to the community
+    </li>
+  </ul>
+</section>
+
     </div>
   );
 }

@@ -5,22 +5,17 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
-import React, { useContext } from "react";
-import { LanguageContext } from "@/context/LanguageContext";
+import React from "react";
 import { motion } from "framer-motion";
 
 export default function LeadersSection() {
-  const { t } = useContext(LanguageContext);
-
   const leaders = [
     { name: "Shri. Devendra Fadnavis", title: "Hon'ble Chief Minister", img: "/Devendra Fadnavis.jpg" },
     { name: "Shri. Eknath Shinde", title: "Hon'ble Deputy Chief Minister", img: "/Eknath Shinde.jpg" },
     { name: "Shri. Ajit Pawar", title: "Hon'ble Deputy Chief Minister", img: "/Ajit Pawar.jpg" },
     { name: "Shri. Chandrashekhar Bawankule", title: "President BJP Maharashtra", img: "/Chandrashekhar Bawankule.jpg" },
-    { name: "Shri. Sameer Meghe", title: "MLA - Hingna Constituency", img: "/meghe.jpg" },
-    { name: "Mrs. Shardatai Gyaneshwarji Bhingaree", title: "Sarpanch GP Takalghat", img: "/roshani.jpg" },
-    { name: "Shri. Umeshrav Natthuji Kavale", title: "Deputy Sarpanch", img: "/gawande.jpg" },
-    { name: "Smt. Poonam Kalsapre", title: "Secretary GP Takalghat", img: "/kalsapre.jpg" },
+    { name: "Mrs. Shardatai Dnyaneshwarji Shingare", title: "Sarpanch GP Takalghat", img: "/sar.jpg" },
+    { name: "Mr. Umeshrao Naththooji Kawale", title: "Deputy Sarpanch", img: "/upsar.jpg" },
   ];
 
   return (
@@ -31,7 +26,7 @@ export default function LeadersSection() {
           <div className="grid md:grid-cols-2 gap-8 items-center mb-10">
             <div>
               <p className="text-sm uppercase tracking-widest text-gray-600 mb-2">
-                {t.leaders1.about}
+                About Us
               </p>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -40,7 +35,7 @@ export default function LeadersSection() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-4xl font-extrabold text-green-800 leading-snug mb-6"
               >
-                {t.leaders1.title}
+                Our Leaders & Visionaries.
               </motion.h2>
             </div>
             <motion.div
@@ -50,7 +45,7 @@ export default function LeadersSection() {
               viewport={{ once: true }}
             >
               <p className="text-lg font-bold text-green-700 leading-relaxed">
-                {t.leaders1.description}
+                The leaders of Takalghat are committed to building a stronger and progressive community. With their guidance, vision, and dedication, they continue to bring innovative development projects, empower villagers through various schemes, and ensure transparency in governance. Their united efforts aim to uplift every family, create sustainable opportunities, and preserve the cultural heritage of the region.
               </p>
             </motion.div>
           </div>

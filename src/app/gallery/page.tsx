@@ -1,49 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-
-const images = [
-  "/img4.jpg",
-  "/IMG-20250917-WA0010.jpg",
-  "/IMG-20250917-WA0015.jpg",
-  "/IMG-20250917-WA0011.jpg",
-  "/IMG-20250917-WA0017.jpg",
-  "/IMG-20250917-WA0027.jpg",
-  "/IMG-20250917-WA0018.jpg",
-  "/IMG-20250917-WA0007.jpg",
-  "/IMG-20250917-WA0008.jpg",
-  "/img2.jpg",
-  "/IMG-20250917-WA0012.jpg",
-  "/IMG-20250917-WA0023.jpg",
-  "/IMG-20250917-WA0016.jpg",
-  "/IMG-20250917-WA0017.jpg",
-  "/img6.jpg",
-];
-
-const spanClasses = [
-  "col-span-2 row-span-2",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-2 row-span-1",
-  "col-span-2 row-span-1",
-  "col-span-2 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-2",
-  "col-span-1 row-span-2",
-  "col-span-1 row-span-2",
-  "col-span-2 row-span-2",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-];
+import { supabase } from "@/lib/supabaseClient";
 
 export default function ProGallery() {
+  const [images, setImages] = useState<string[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // 📌 Fetch gallery images from Supabase
+  const fetchImages = async () => {
+    const { data, error } = await supabase
+      .from("gallery")
+      .select("image_url")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("❌ Error fetching gallery:", error);
+    } else {
+      const urls =
+        data?.map(
+          (row) =>
+            supabase.storage.from("gallery").getPublicUrl(row.image_url).data
+              .publicUrl
+        ) || [];
+      setImages(urls);
+    }
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
 
   const openLightbox = (img: string, idx: number) => {
     setSelectedImage(img);
@@ -65,11 +55,8 @@ export default function ProGallery() {
   const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, currentTarget } = e;
     const middle = currentTarget.clientWidth / 2;
-    if (clientX < middle) {
-      prevImage();
-    } else {
-      nextImage();
-    }
+    if (clientX < middle) prevImage();
+    else nextImage();
   };
 
   return (
@@ -90,7 +77,7 @@ export default function ProGallery() {
           transition={{ duration: 1 }}
         >
           <motion.h1
-            className="text-3xl md:text-5xl font-extrabold tracking-wide"
+            className="text-2xl md:text-4xl font-extrabold tracking-wide"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
@@ -103,22 +90,19 @@ export default function ProGallery() {
       {/* Gallery Section */}
       <section className="py-16 bg-gradient-to-br from-orange-300 via-white to-green-300">
         <motion.div
-          className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 px-4 md:px-12 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[220px]"
+          className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 md:px-12"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={{
             hidden: {},
-            show: {
-              transition: { staggerChildren: 0.08 },
-            },
+            show: { transition: { staggerChildren: 0.08 } },
           }}
         >
           {images.map((img, idx) => (
             <motion.div
               key={idx}
-              className={`relative rounded-2xl overflow-hidden shadow-lg cursor-pointer group 
-                ${idx < spanClasses.length ? `md:${spanClasses[idx]}` : ""}`}
+              className="relative rounded-2xl overflow-hidden shadow-lg cursor-pointer group aspect-square"
               variants={{
                 hidden: { opacity: 0, scale: 0.9, y: 30, rotate: -2 },
                 show: { opacity: 1, scale: 1, y: 0, rotate: 0 },
@@ -133,7 +117,6 @@ export default function ProGallery() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              {/* Overlay Caption */}
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <p className="text-white text-lg font-semibold tracking-wide">
                   View Image
@@ -152,8 +135,7 @@ export default function ProGallery() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className="relative max-w-5xl w-full">
-                {/* Close */}
+              <div className="relative max-w-6xl w-full">
                 <motion.button
                   className="absolute top-4 right-4 text-white hover:text-red-400 transition z-50"
                   whileHover={{ scale: 1.2 }}
@@ -161,8 +143,6 @@ export default function ProGallery() {
                 >
                   <X size={32} />
                 </motion.button>
-
-                {/* Prev */}
                 <motion.button
                   className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-indigo-400 z-50"
                   whileHover={{ scale: 1.2 }}
@@ -170,8 +150,6 @@ export default function ProGallery() {
                 >
                   <ChevronLeft size={40} />
                 </motion.button>
-
-                {/* Next */}
                 <motion.button
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-indigo-400 z-50"
                   whileHover={{ scale: 1.2 }}
@@ -179,11 +157,9 @@ export default function ProGallery() {
                 >
                   <ChevronRight size={40} />
                 </motion.button>
-
-                {/* Image */}
                 <motion.div
                   key={currentIndex}
-                  className="relative w-full max-h-[80vh] flex items-center justify-center cursor-pointer"
+                  className="relative w-full max-h-[85vh] flex items-center justify-center cursor-pointer"
                   initial={{ scale: 0.85, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.85, opacity: 0 }}
@@ -193,9 +169,9 @@ export default function ProGallery() {
                   <Image
                     src={selectedImage}
                     alt="Selected"
-                    width={1200}
-                    height={800}
-                    className="w-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
+                    width={1400}
+                    height={900}
+                    className="w-auto max-h-[85vh] object-contain rounded-2xl shadow-2xl"
                   />
                 </motion.div>
               </div>

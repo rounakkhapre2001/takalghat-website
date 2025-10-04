@@ -10,12 +10,12 @@ import { motion } from "framer-motion";
 
 export default function LeadersSection() {
   const leaders = [
-    { name: "Shri. Devendra Fadnavis", title: "Hon'ble Chief Minister", img: "/Devendra Fadnavis.jpg" },
-    { name: "Shri. Eknath Shinde", title: "Hon'ble Deputy Chief Minister", img: "/Eknath Shinde.jpg" },
-    { name: "Shri. Ajit Pawar", title: "Hon'ble Deputy Chief Minister", img: "/Ajit Pawar.jpg" },
-    { name: "Shri. Chandrashekhar Bawankule", title: "President BJP Maharashtra", img: "/Chandrashekhar Bawankule.jpg" },
-    { name: "Mrs. Shardatai Dnyaneshwarji Shingare", title: "Sarpanch GP Takalghat", img: "/sar.jpg" },
-    { name: "Mr. Umeshrao Naththooji Kawale", title: "Deputy Sarpanch", img: "/upsar.jpg" },
+    { name: "Shri. Devendra Fadnavis", title: "Hon'ble Chief Minister", img: "/devendra.jpg" },
+    { name: "Shri. Eknath Shinde", title: "Hon'ble Deputy Chief Minister", img: "/shinde.jpg" },
+    { name: "Shri. Ajit Pawar", title: "Hon'ble Deputy Chief Minister", img: "/ajit_pawar.jpg" },
+    { name: "Shri. Chandrashekhar Bawankule", title: "President BJP Maharashtra", img: "/bavankule.jpg" },
+    { name: "Mrs. Shardatai Dnyaneshwarji Shingare", title: "Sarpanch GP Takalghat", img: "/sarpanch.jpg" },
+    { name: "Mr. Umeshrao Naththooji Kawale", title: "Deputy Sarpanch", img: "/upa_sarpanch.jpg" },
   ];
 
   return (

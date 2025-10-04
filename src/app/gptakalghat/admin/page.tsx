@@ -86,12 +86,6 @@ export default function DashboardPage() {
         <h1 className="text-2xl sm:text-3xl lg:text-2xl font-bold text-[#0B6477]">
           Welcome to Admin Dashboard 🎉
         </h1>
-        <button
-          onClick={handleLogout}
-          className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
-        >
-          Logout
-        </button>
       </div>
 
       {/* Stats Cards */}

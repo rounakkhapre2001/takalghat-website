@@ -4,8 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -35,7 +37,8 @@ export default function Header() {
     { href: "../contact", label: "Contact" },
   ];
 
-  if (!isClient) return null;
+  // Hide header on admin routes or until client is ready
+  if (!isClient || pathname?.startsWith("/gptakalghat/admin")) return null;
 
   return (
     <motion.header
@@ -132,75 +135,73 @@ export default function Header() {
           </Link>
 
           <button
-  className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium"
-  onClick={async () => {
-    const messageId = 1; // यहाँ वो message ID डालें जिसे translate करना है
-    const targetLang = "hi"; // Hindi example
+            className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium"
+            onClick={async () => {
+              const messageId = 1; // Example
+              const targetLang = "hi"; // Hindi
 
-    const res = await fetch("/api/translate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messageId, targetLang }),
-    });
+              const res = await fetch("/api/translate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ messageId, targetLang }),
+              });
 
-    const data = await res.json();
-    if (data.translatedText) {
-      alert(`Translated: ${data.translatedText}`);
-    }
-  }}
->
-  Translate
-</button>
-
+              const data = await res.json();
+              if (data.translatedText) {
+                alert(`Translated: ${data.translatedText}`);
+              }
+            }}
+          >
+            Translate
+          </button>
         </motion.div>
 
         {/* Mobile Logo + Button */}
         <div className="flex md:hidden items-center justify-between w-full">
-  <div className="flex items-center space-x-1">
-    <Link href="/">
-      <Image
-        src="/logo.png"
-        alt="Logo"
-        width={40}   // smaller logo
-        height={40}
-        className="object-contain"
-      />
-    </Link>
-    <span className="text-sm font-semibold text-green-800">
-      Gram Panchayat Takalghat
-    </span>
-  </div>
+          <div className="flex items-center space-x-1">
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={40} // smaller logo
+                height={40}
+                className="object-contain"
+              />
+            </Link>
+            <span className="text-sm font-semibold text-green-800">
+              Gram Panchayat Takalghat
+            </span>
+          </div>
 
-  <div className="flex items-center space-x-1">
-    <button className="bg-blue-600 text-white py-1 px-2 rounded-full text-xs hover:bg-blue-700 transition-colors duration-300 font-medium">
-      Translate
-    </button>
-    <button
-      aria-label="Toggle mobile menu"
-      onClick={() => setIsMenuOpen(!isMenuOpen)}
-      className="text-gray-800 focus:outline-none ml-1"
-    >
-      <svg
-        className="w-6 h-6"  // smaller menu icon
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d={
-            isMenuOpen
-              ? "M6 18L18 6M6 6l12 12"
-              : "M4 6h16M4 12h16m-7 6h7"
-          }
-        />
-      </svg>
-    </button>
-  </div>
-</div>
-
+          <div className="flex items-center space-x-1">
+            <button className="bg-blue-600 text-white py-1 px-2 rounded-full text-xs hover:bg-blue-700 transition-colors duration-300 font-medium">
+              Translate
+            </button>
+            <button
+              aria-label="Toggle mobile menu"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-800 focus:outline-none ml-1"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d={
+                    isMenuOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16m-7 6h7"
+                  }
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
       </nav>
 
       {/* Mobile Menu */}

@@ -40,9 +40,7 @@ export default function AdminPage() {
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value, files } = e.target as HTMLInputElement;
     setForm({ ...form, [name]: files ? files[0] : value });
@@ -64,6 +62,7 @@ export default function AdminPage() {
 
       const res = await fetch(url, { method, body: data });
       const resData = await res.json();
+
       if (res.ok) {
         fetchMembers();
         setForm({
@@ -202,7 +201,6 @@ export default function AdminPage() {
         Team Members
       </h2>
 
-      {/* Table with horizontal scroll on mobile */}
       <div className="overflow-x-auto">
         <table className="w-full border-collapse border text-xs sm:text-sm md:text-base">
           <thead>
